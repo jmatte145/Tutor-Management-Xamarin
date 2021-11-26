@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorManagementiOS.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorManagementiOS.iOS", "TutorManagementiOS\TutorManagementiOS.iOS\TutorManagementiOS.iOS.csproj", "{607E99E1-BCD9-4A5E-A38E-60C2B846B335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorManagementiOS", "TutorManagementiOS\TutorManagementiOS\TutorManagementiOS.csproj", "{0B86ACB4-6DD9-4BB1-8AD2-D2BAC075A3EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorManagementiOS", "TutorManagementiOS\TutorManagementiOS\TutorManagementiOS.csproj", "{0B86ACB4-6DD9-4BB1-8AD2-D2BAC075A3EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD99E104-4953-495B-8122-3CF1C1246A2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
