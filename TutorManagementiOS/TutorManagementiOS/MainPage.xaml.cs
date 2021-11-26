@@ -10,7 +10,7 @@ namespace TutorManagementiOS
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(object userType)
         {
             InitializeComponent();
         }
