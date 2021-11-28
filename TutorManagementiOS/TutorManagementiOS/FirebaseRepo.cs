@@ -11,7 +11,7 @@ namespace TutorManagementiOS
     public class FirebaseRepo
     {
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://studentxamarinproject-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
 
         public async Task<bool> SaveUser(User user)
         {
@@ -34,10 +34,14 @@ namespace TutorManagementiOS
                 Child(nameof(User)).OnceAsync<User>()).Select(
                 item => new User
                 {
+                    userID = item.Key,
                     firstName = item.Object.firstName,
                     lastName = item.Object.lastName,
+                    email = item.Object.email,
                     userName = item.Object.userName,
                     password = item.Object.password,
+                    userType = item.Object.userType,
+                    approvalStatus = item.Object.approvalStatus
                 }).ToList();
         }
 

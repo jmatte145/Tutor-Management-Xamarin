@@ -20,7 +20,7 @@ namespace TutorManagementiOS
 
         private async void btnRegister_Clicked(object sender, EventArgs e)
         {
-           // await Navigation.PushAsync(new Register());
+           await Navigation.PushAsync(new Register());
         }
 
         private async void btnLogin_Clicked(object sender, EventArgs e)

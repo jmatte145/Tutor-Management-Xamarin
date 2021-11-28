@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorManagementiOS.Register">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="Center">
+            <Label Text="Register" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
+
+            <Entry x:Name="txtFName" Placeholder="First Name" FontSize="Large"/>
+
+            <Entry x:Name="txtLName" Placeholder="Last Name" FontSize="Large"/>
+
+            <Entry x:Name="txtEmail" Placeholder="Email Address" FontSize="Large"/>
+
+            <Entry x:Name="txtUserName" Placeholder="Username" FontSize="Large"/>
+
+            <Entry x:Name="txtPassword" Placeholder="Password" FontSize="Large" IsPassword="True"/>
+
+            <Label Text="Who are you?"/>
+
+            <RadioButton x:Name="TutorRole" Content="Tutor" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
+
+            <RadioButton x:Name="StudentRole" Content="Student" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
+
+            <RadioButton x:Name="TeacherRole" Content="Teacher" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
+
+            <Button x:Name="btnRegister" Text="Create Account" Font="large" BackgroundColor="LightBlue" Clicked="btnRegister_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
