@@ -6,34 +6,38 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TutorManagementiOS.ViewModels;
 
 namespace TutorManagementiOS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        FirebaseRepo userRepo = new FirebaseRepo();
         public LoginPage()
         {
+            var vm = new LoginViewModel();
+            this.BindingContext = vm;
+            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+
+            //to be removed
+            vm.DisplayValidLoginPrompt += () => DisplayAlert("Success", "Valid Login", "OK");
+
             InitializeComponent();
-        }
 
-        private async void btnRegister_Clicked(object sender, EventArgs e)
-        {
-           await Navigation.PushAsync(new Register());
-        }
-
-        private async void btnLogin_Clicked(object sender, EventArgs e)
-        {
-            List<User> users = await userRepo.GetAllUsers();
-
-            for (int u = 0; u < users.Count; u++)
+            User.Completed += (object sender, EventArgs e) =>
             {
-                if (users[u].userName == txtUserName.Text && users[u].password == txtPassword.Text)
-                {
-                    await Navigation.PushAsync(new MainPage(users[u].userType));
-                }
-            }
+                Password.Focus();
+            };
+
+            Password.Completed += (object sender, EventArgs e) =>
+            {
+                vm.SubmitCommand.Execute(null);
+            };
+        }
+        async void navRegister(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Register()); ;
+
         }
     }
 }

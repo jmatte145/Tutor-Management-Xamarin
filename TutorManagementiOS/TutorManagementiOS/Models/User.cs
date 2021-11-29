@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TutorManagementiOS
 {
-    public class User
+    public class UserClass
     {
         public string userID { get; set; }
         public string firstName { get; set; }

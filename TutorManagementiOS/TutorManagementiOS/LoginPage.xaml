@@ -2,17 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TutorManagementiOS.LoginPage">
-    <ContentPage.Content>
-        <StackLayout Padding="20" VerticalOptions="Center">
-            <Label Text="Welcome to the Champlain Regional College Tutoring App!" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
-
-            <Entry x:Name="txtUserName" Placeholder="Username" FontSize="Large"/>
-
-            <Entry x:Name="txtPassword" Placeholder="Password" FontSize="Large" IsPassword="True"/>
-
-            <Button x:Name="btnLogin" Text="Login" Font="large" BackgroundColor="LightBlue" Clicked="btnLogin_Clicked"/>
-
-            <Button x:Name="btnRegister" Text="Register" Font="large" BackgroundColor="LightBlue" Clicked="btnRegister_Clicked"/>
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.Content>  
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
+            <BoxView HeightRequest="10"/> 
+            <Frame BackgroundColor="#BF043055" HasShadow="False">  
+                <StackLayout Orientation="Vertical" Spacing="10">  
+                    <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>  
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>  
+                </StackLayout>  
+            </Frame>  
+            <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+            <Button Text="Register" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" Clicked="navRegister"/>  
+        </StackLayout>  
+    </ContentPage.Content>  
 </ContentPage>

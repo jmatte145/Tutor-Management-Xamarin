@@ -11,11 +11,11 @@ namespace TutorManagementiOS
     public class FirebaseRepo
     {
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorapp-daf4d-default-rtdb.firebaseio.com/");
 
-        public async Task<bool> SaveUser(User user)
+        public async Task<bool> SaveUser(UserClass user)
         {
-            var data = await firebaseClient.Child(nameof(User)).
+            var data = await firebaseClient.Child(nameof(UserClass)).
                 PostAsync(JsonConvert.SerializeObject(user));
 
             if (!string.IsNullOrEmpty(data.Key))
@@ -28,11 +28,11 @@ namespace TutorManagementiOS
             }
         }
 
-        public async Task<List<User>> GetAllUsers()
+        public async Task<List<UserClass>> GetAllUsers()
         {
             return (await firebaseClient.
-                Child(nameof(User)).OnceAsync<User>()).Select(
-                item => new User
+                Child(nameof(UserClass)).OnceAsync<UserClass>()).Select(
+                item => new UserClass
                 {
                     userID = item.Key,
                     firstName = item.Object.firstName,
@@ -45,14 +45,14 @@ namespace TutorManagementiOS
                 }).ToList();
         }
 
-        public async Task<User> GetByUserId(string userID)
+        public async Task<UserClass> GetByUserId(string userID)
         {
-            return (await firebaseClient.Child(nameof(User) + "/" + userID).OnceSingleAsync<User>());
+            return (await firebaseClient.Child(nameof(UserClass) + "/" + userID).OnceSingleAsync<UserClass>());
         }
 
-        public async Task<bool> UpdateUser(User user)
+        public async Task<bool> UpdateUser(UserClass user)
         {
-            await firebaseClient.Child(nameof(User) + "/" + user.userID).PutAsync(JsonConvert.SerializeObject(user));
+            await firebaseClient.Child(nameof(UserClass) + "/" + user.userID).PutAsync(JsonConvert.SerializeObject(user));
             return true;
         }
     }
