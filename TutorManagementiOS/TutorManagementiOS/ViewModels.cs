@@ -58,7 +58,7 @@ namespace TutorManagementiOS.ViewModels
                 {
                     if (list[i].userName.Equals(user) & list[i].password.Equals(password))
                     {
-                        if (list[i].userType.Equals("Student"))
+                        /*if (list[i].userType.Equals("Student"))
                         {
                             currentUser=list[i].userID;
                             //nav();
@@ -75,7 +75,7 @@ namespace TutorManagementiOS.ViewModels
                             currentUser = list[i].userID;
                             //nav();
                             DisplayValidLoginPrompt();
-                        }
+                        }*/
 
                         success = true;
                     }

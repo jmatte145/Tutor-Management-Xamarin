@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TutorManagementiOS.Models;
 
 namespace TutorManagementiOS
 {
     public class FirebaseRepo
     {
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://tutorapp-daf4d-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
 
+        // User //
         public async Task<bool> SaveUser(UserClass user)
         {
             var data = await firebaseClient.Child(nameof(UserClass)).
@@ -40,7 +42,6 @@ namespace TutorManagementiOS
                     email = item.Object.email,
                     userName = item.Object.userName,
                     password = item.Object.password,
-                    userType = item.Object.userType,
                     approvalStatus = item.Object.approvalStatus
                 }).ToList();
         }
@@ -54,6 +55,84 @@ namespace TutorManagementiOS
         {
             await firebaseClient.Child(nameof(UserClass) + "/" + user.userID).PutAsync(JsonConvert.SerializeObject(user));
             return true;
+        }
+
+        // Student //
+        public async Task<bool> SaveStudent(Student student)
+        {
+            var data = await firebaseClient.Child(nameof(Student)).
+                PostAsync(JsonConvert.SerializeObject(student));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Student>> GetAllStudents()
+        {
+            return (await firebaseClient.
+                Child(nameof(Student)).OnceAsync<Student>()).Select(
+                item => new Student
+                {
+                    userID = item.Key
+                }).ToList();
+        }
+
+        // Tutor // 
+        public async Task<bool> SaveTutor(Tutor tutor)
+        {
+            var data = await firebaseClient.Child(nameof(Tutor)).
+                PostAsync(JsonConvert.SerializeObject(tutor));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Tutor>> GetAllTutors()
+        {
+            return (await firebaseClient.
+                Child(nameof(Tutor)).OnceAsync<Tutor>()).Select(
+                item => new Tutor
+                {
+                    userID = item.Key
+                }).ToList();
+        }
+
+        // Teacher // 
+        public async Task<bool> SaveTeacher(Teacher teacher)
+        {
+            var data = await firebaseClient.Child(nameof(Teacher)).
+                PostAsync(JsonConvert.SerializeObject(teacher));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Teacher>> GetAllTeachers()
+        {
+            return (await firebaseClient.
+                Child(nameof(Teacher)).OnceAsync<Teacher>()).Select(
+                item => new Teacher
+                {
+                    userID = item.Key
+                }).ToList();
         }
     }
 }

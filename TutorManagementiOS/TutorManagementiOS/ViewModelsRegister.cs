@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
+using TutorManagementiOS.Models;
 using Xamarin.Forms;
 namespace TutorManagementiOS.ViewModelsRegister
 {
@@ -80,12 +82,41 @@ namespace TutorManagementiOS.ViewModelsRegister
         {
             if (!(string.IsNullOrWhiteSpace(User) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(Fname) || string.IsNullOrWhiteSpace(Lname) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Role)))
             {
-                    registerUser();
-                    nav();
+                string savedRole = role;
+                string savedName = user;
+                string savedPass = password;
+                registerUser();
+                Console.WriteLine(savedName);
+                registerUserType(savedRole, savedName, savedPass);
+                nav();
             }
             else
                 DisplayInvalidLoginPrompt();
 
+        }
+
+        async void registerUserType(string savedRole, string savedName, string savedPass)
+        {
+            List<UserClass> list = new List<UserClass>();
+            list = await db.GetAllUsers();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].userName.Equals(savedName) & list[i].password.Equals(savedPass))
+                {
+                    if (savedRole.Equals("Student"))
+                    {
+                        registerStudent(list[i].userID);
+                    }
+                    if (savedRole.Equals("Tutor"))
+                    {
+                        registerTutor(list[i].userID);
+                    }
+                    if (savedRole.Equals("Teacher"))
+                    {
+                        registerTeacher(list[i].userID);
+                    }
+                }
+            }
         }
 
         async void nav()
@@ -101,8 +132,31 @@ namespace TutorManagementiOS.ViewModelsRegister
                 email = email,
                 userName = user,
                 password = password,
-                userType = role,
                 approvalStatus = false,
+            });
+        }
+
+        async void registerStudent(string id)
+        {
+            await db.SaveStudent(new Student
+            {
+                userID = id
+            });
+        }
+
+        async void registerTutor(string id)
+        {
+            await db.SaveTutor(new Tutor
+            {
+                userID = id
+            });
+        }
+
+        async void registerTeacher(string id)
+        {
+            await db.SaveTeacher(new Teacher
+            {
+                userID = id
             });
         }
     }
