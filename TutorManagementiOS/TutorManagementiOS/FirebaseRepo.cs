@@ -89,6 +89,12 @@ namespace TutorManagementiOS
             + "/" + sID).OnceSingleAsync<Student>());
         }
 
+        public async Task<bool> UpdateStudent(Student student)
+        {
+            await firebaseClient.Child(nameof(Student) + "/" + student.genUserID).PutAsync(JsonConvert.SerializeObject(student));
+            return true;
+        }
+
         // Tutor // 
         public async Task<bool> SaveTutor(Tutor tutor)
         {
@@ -120,6 +126,12 @@ namespace TutorManagementiOS
             + "/" + sID).OnceSingleAsync<Tutor>());
         }
 
+        public async Task<bool> UpdateTutor(Tutor tutor)
+        {
+            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.genUserID).PutAsync(JsonConvert.SerializeObject(tutor));
+            return true;
+        }
+
         // Teacher // 
         public async Task<bool> SaveTeacher(Teacher teacher)
         {
@@ -149,6 +161,12 @@ namespace TutorManagementiOS
         {
             return (await firebaseClient.Child(nameof(Teacher)
             + "/" + sID).OnceSingleAsync<Teacher>());
+        }
+
+        public async Task<bool> UpdateTeacher(Teacher teacher)
+        {
+            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.genUserID).PutAsync(JsonConvert.SerializeObject(teacher));
+            return true;
         }
     }
 }

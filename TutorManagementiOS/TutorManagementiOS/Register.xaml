@@ -5,81 +5,51 @@
              Title="Register New User">
 
     <ContentPage.Content>
-        
-        
+
+
         <ScrollView>
-        <StackLayout Orientation="Vertical" Padding="20" Spacing="20">  
-            <BoxView HeightRequest="10"/> 
-            <Frame BackgroundColor="#BF043055" HasShadow="False">  
-                <StackLayout Orientation="Vertical" Spacing="10">  
-                    <Entry x:Name="Fname" Text="{Binding Fname}" Placeholder="First Name"   
+            <StackLayout Orientation="Vertical" Padding="20" Spacing="20">
+                <BoxView HeightRequest="10"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="Fname" Text="{Binding Fname}" Placeholder="First Name"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
+                        <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    
-                    
-                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+
+
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White" Margin="0,20,0,0" />
-                    
-                    <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
+
+                        <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
                            PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>  
-                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           TextColor="White"/>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
                            PlaceholderColor="White" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="White"/>
-                    
-                    <StackLayout RadioButtonGroup.GroupName="RoleRequest"
+
+                        <StackLayout RadioButtonGroup.GroupName="RoleRequest"
                                  RadioButtonGroup.SelectedValue="{Binding Role}" Margin="0,20,0,0" >
-                    <RadioButton x:Name="TutorRole" Content="Tutor" Value="Tutor" TextColor="White"/>
+                            <RadioButton x:Name="TutorRole" Content="Tutor" Value="Tutor" TextColor="White"/>
 
-                    <RadioButton x:Name="StudentRole" Content="Student" Value="Student" TextColor="White"/>
+                            <RadioButton x:Name="StudentRole" Content="Student" Value="Student" TextColor="White"/>
 
-                    <RadioButton x:Name="TeacherRole" Content="Teacher" Value="Teacher" TextColor="White"/>
+                            <RadioButton x:Name="TeacherRole" Content="Teacher" Value="Teacher" TextColor="White"/>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>  
-            </Frame>  
-            <Button Command="{Binding SubmitCommand}" Text="Register" TextColor="White"  
+                </Frame>
+                <Button Command="{Binding SubmitCommand}" Text="Register" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" />
-            <Button Text="Login" TextColor="White"  
+                <Button Text="Login" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="navRegister"/>
-            <Label x:Name="test"/>
-        </StackLayout>
+                <Label x:Name="test"/>
+            </StackLayout>
         </ScrollView>
-    </ContentPage.Content>  
-</ContentPage>
-
-
-
-
-   <!-- <ContentPage.Content>
-        <StackLayout Padding="20" VerticalOptions="Center">
-            <Label Text="Register" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
-
-            <Entry x:Name="txtFName" Placeholder="First Name" FontSize="Large"/>
-
-            <Entry x:Name="txtLName" Placeholder="Last Name" FontSize="Large"/>
-
-            <Entry x:Name="txtEmail" Placeholder="Email Address" FontSize="Large"/>
-
-            <Entry x:Name="txtUserName" Placeholder="Username" FontSize="Large"/>
-
-            <Entry x:Name="txtPassword" Placeholder="Password" FontSize="Large" IsPassword="True"/>
-
-            <Label Text="Who are you?"/>
-
-            <RadioButton x:Name="TutorRole" Content="Tutor" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
-
-            <RadioButton x:Name="StudentRole" Content="Student" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
-
-            <RadioButton x:Name="TeacherRole" Content="Teacher" GroupName="Roles" CheckedChanged="Roles_CheckedChanged"/>
-
-            <Button x:Name="btnRegister" Text="Create Account" Font="large" BackgroundColor="LightBlue" Clicked="btnRegister_Clicked"/>
-        </StackLayout>
     </ContentPage.Content>
-</ContentPage>-->
+</ContentPage>
