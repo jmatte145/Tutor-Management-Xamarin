@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorManagementiOS.Register">
+             x:Class="TutorManagementiOS.Register"
+             Title="Register New User">
+
     <ContentPage.Content>
+        
+        
         <ScrollView>
         <StackLayout Orientation="Vertical" Padding="20" Spacing="20">  
             <BoxView HeightRequest="10"/> 
@@ -14,10 +18,12 @@
                     <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
+                    
+                    
                     <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>
-                    <Label/>
+                           TextColor="White" Margin="0,20,0,0" />
+                    
                     <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>  
@@ -25,9 +31,9 @@
                            PlaceholderColor="White" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="White"/>
-                    <Label/>
+                    
                     <StackLayout RadioButtonGroup.GroupName="RoleRequest"
-                                 RadioButtonGroup.SelectedValue="{Binding Role}">
+                                 RadioButtonGroup.SelectedValue="{Binding Role}" Margin="0,20,0,0" >
                     <RadioButton x:Name="TutorRole" Content="Tutor" Value="Tutor" TextColor="White"/>
 
                     <RadioButton x:Name="StudentRole" Content="Student" Value="Student" TextColor="White"/>
@@ -38,10 +44,10 @@
             </Frame>  
             <Button Command="{Binding SubmitCommand}" Text="Register" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" />
+                    BackgroundColor="#BF043055" />
             <Button Text="Login" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" Clicked="navRegister"/>
+                    BackgroundColor="#BF043055" Clicked="navRegister"/>
             <Label x:Name="test"/>
         </StackLayout>
         </ScrollView>

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorManagementiOS.LoginPage">
+             x:Class="TutorManagementiOS.LoginPage"
+             Title="Champlain Tutoring">
     <ContentPage.Content>  
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
             <BoxView HeightRequest="10"/> 
@@ -18,10 +19,10 @@
             </Frame>  
             <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" />
+                    BackgroundColor="#BF043055" />
             <Button Text="Register" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" Clicked="navRegister"/>  
+                    BackgroundColor="#BF043055" Clicked="navRegister"/>  
         </StackLayout>  
     </ContentPage.Content>  
 </ContentPage>
