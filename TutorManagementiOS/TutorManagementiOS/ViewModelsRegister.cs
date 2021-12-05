@@ -83,56 +83,24 @@ namespace TutorManagementiOS.ViewModelsRegister
             if (!(string.IsNullOrWhiteSpace(User) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(Fname) || string.IsNullOrWhiteSpace(Lname) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Role)))
             {
                 string savedRole = role;
-                string savedName = user;
-                string savedPass = password;
-                registerUser();
-                Console.WriteLine(savedRole);
-                registerUserType(savedRole, savedName, savedPass);
-                //nav();
+
+                registerUser(savedRole);
+
+                nav();
             }
             else
                 DisplayInvalidLoginPrompt();
 
         }
 
-        async void registerUserType(string savedRole, string savedName, string savedPass)
-        {
-            List<UserClass> list = new List<UserClass>();
-            list = await db.GetAllUsers();
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].userName.Equals(savedName) & list[i].password.Equals(savedPass))
-                {
-                    Console.WriteLine(list[i].userID);
-                    Console.WriteLine("yay");
-                    if (savedRole.Equals("Student"))
-                    {
-                        registerStudent(list[i].userID);
-                    }
-                    if (savedRole.Equals("Tutor"))
-                    {
-                        registerTutor(list[i].userID);
-                    }
-                    if (savedRole.Equals("Teacher"))
-                    {
-                        registerTeacher(list[i].userID);
-                    }
-                    nav();
-                }
-                else
-                {
-                    Console.WriteLine("massive ouch");
-                }
-            }
-        }
 
         async void nav()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
-        async void registerUser()
+        async void registerUser(string id)
         {
-            await db.SaveUser(new UserClass
+            string temp = await db.SaveUser(new UserClass
             {
                 firstName = fname,
                 lastName = lname,
@@ -141,13 +109,25 @@ namespace TutorManagementiOS.ViewModelsRegister
                 password = password,
                 approvalStatus = false,
             });
+            if (id.Equals("Student"))
+            {
+                registerStudent(temp);
+            }
+            if (id.Equals("Tutor"))
+            {
+                registerTutor(temp);
+            }
+            if (id.Equals("Teacher"))
+            {
+                registerTeacher(temp);
+            }
         }
 
         async void registerStudent(string id)
         {
             await db.SaveStudent(new Student
             {
-                userID = id
+                genUserID = id
             });
         }
 
@@ -155,7 +135,7 @@ namespace TutorManagementiOS.ViewModelsRegister
         {
             await db.SaveTutor(new Tutor
             {
-                userID = id
+                genUserID = id
             });
         }
 
@@ -163,7 +143,7 @@ namespace TutorManagementiOS.ViewModelsRegister
         {
             await db.SaveTeacher(new Teacher
             {
-                userID = id
+                genUserID = id
             });
         }
     }

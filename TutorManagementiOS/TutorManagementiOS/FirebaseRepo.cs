@@ -12,21 +12,22 @@ namespace TutorManagementiOS
     public class FirebaseRepo
     {
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://testprojforios-default-rtdb.firebaseio.com/");
 
         // User //
-        public async Task<bool> SaveUser(UserClass user)
+        public async Task<string> SaveUser(UserClass user)
         {
             var data = await firebaseClient.Child(nameof(UserClass)).
                 PostAsync(JsonConvert.SerializeObject(user));
 
             if (!string.IsNullOrEmpty(data.Key))
             {
-                return true;
+                //Console.WriteLine(data.Key);
+                return data.Key;
             }
             else
             {
-                return false;
+                return "fail";
             }
         }
 
@@ -79,8 +80,13 @@ namespace TutorManagementiOS
                 Child(nameof(Student)).OnceAsync<Student>()).Select(
                 item => new Student
                 {
-                    userID = item.Key
+                    genUserID = item.Object.genUserID
                 }).ToList();
+        }
+        public async Task<Student> GetStudentByID(string sID)
+        {
+            return (await firebaseClient.Child(nameof(Student)
+            + "/" + sID).OnceSingleAsync<Student>());
         }
 
         // Tutor // 
@@ -105,8 +111,13 @@ namespace TutorManagementiOS
                 Child(nameof(Tutor)).OnceAsync<Tutor>()).Select(
                 item => new Tutor
                 {
-                    userID = item.Key
+                    genUserID = item.Object.genUserID
                 }).ToList();
+        }
+        public async Task<Tutor> GetTutorByID(string sID)
+        {
+            return (await firebaseClient.Child(nameof(Tutor)
+            + "/" + sID).OnceSingleAsync<Tutor>());
         }
 
         // Teacher // 
@@ -131,8 +142,13 @@ namespace TutorManagementiOS
                 Child(nameof(Teacher)).OnceAsync<Teacher>()).Select(
                 item => new Teacher
                 {
-                    userID = item.Key
+                    genUserID = item.Object.genUserID
                 }).ToList();
+        }
+        public async Task<Teacher> GetTeacherByID(string sID)
+        {
+            return (await firebaseClient.Child(nameof(Teacher)
+            + "/" + sID).OnceSingleAsync<Teacher>());
         }
     }
 }

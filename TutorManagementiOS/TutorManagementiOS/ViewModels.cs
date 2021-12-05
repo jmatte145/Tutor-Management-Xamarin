@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 namespace TutorManagementiOS.ViewModels
@@ -49,34 +50,52 @@ namespace TutorManagementiOS.ViewModels
             bool success = false;
             if (user == "admin" || password == "secret")
             {
-                //navAdmin();
+                navAdmin();
                 DisplayValidLoginPrompt();
             }
             else
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].userName.Equals(user) & list[i].password.Equals(password))
+                    if (list[i].userName.Equals(user) & list[i].password.Equals(password)) 
                     {
-                        /*if (list[i].userType.Equals("Student"))
-                        {
-                            currentUser=list[i].userID;
-                            //nav();
-                            DisplayValidLoginPrompt();
-                        }
-                        if (list[i].userType.Equals("Tutor"))
-                        {
-                            currentUser = list[i].userID;
-                            //nav();
-                            DisplayValidLoginPrompt();
-                        }
-                        if (list[i].userType.Equals("Teacher"))
-                        {
-                            currentUser = list[i].userID;
-                            //nav();
-                            DisplayValidLoginPrompt();
-                        }*/
+                        Console.WriteLine("hello");
+                        var listing1 = await db.GetAllStudents();
 
+                        for (int a = 0; a < listing1.Count; a++)
+                        {
+                            if (listing1.Any() & listing1[a].genUserID.Equals(list[i].userID))
+                            {
+                                currentUser = list[i].userID;
+                                //nav student home page
+                                nav();
+                                //DisplayValidLoginPrompt();
+                            }
+                        }
+                        var listing2 = await db.GetAllTutors();
+
+                        for (int n = 0; n < listing2.Count; n++)
+                        {
+                            if (listing2.Any() & listing2[n].genUserID.Equals(list[i].userID))
+                            {
+                                currentUser = list[i].userID;
+                                //nav tutor home page
+                                nav();
+                                //DisplayValidLoginPrompt();
+                            }
+                        }
+                        var listing3 = await db.GetAllTeachers();
+
+                        for (int m = 0; m < listing3.Count; m++)
+                        {
+                            if (listing3.Any() & listing3[m].genUserID.Equals(list[i].userID))
+                            {
+                                currentUser = list[i].userID;
+                                //nav student home page
+                                nav();
+                                //DisplayValidLoginPrompt();
+                            }
+                        }
                         success = true;
                     }
                 }
@@ -89,13 +108,13 @@ namespace TutorManagementiOS.ViewModels
         }
 
 
-        //async void nav()
-        //{
-        //    await Application.Current.MainPage.Navigation.PushAsync(new Home());
-        //}
-        //async void navAdmin()
-        //{
-        //    await Application.Current.MainPage.Navigation.PushAsync(new HomeAdministration());
-        //}
+        async void nav()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeStudent());
+        }
+        async void navAdmin()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeAdmin());
+        }
     }
 }

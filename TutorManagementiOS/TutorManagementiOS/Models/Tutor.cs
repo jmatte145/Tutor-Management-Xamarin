@@ -6,6 +6,6 @@ namespace TutorManagementiOS.Models
 {
     public class Tutor
     {
-        public string userID { get; set; }
+        public string genUserID { get; set; }
     }
 }
