@@ -86,9 +86,9 @@ namespace TutorManagementiOS.ViewModelsRegister
                 string savedName = user;
                 string savedPass = password;
                 registerUser();
-                Console.WriteLine(savedName);
+                Console.WriteLine(savedRole);
                 registerUserType(savedRole, savedName, savedPass);
-                nav();
+                //nav();
             }
             else
                 DisplayInvalidLoginPrompt();
@@ -103,6 +103,8 @@ namespace TutorManagementiOS.ViewModelsRegister
             {
                 if (list[i].userName.Equals(savedName) & list[i].password.Equals(savedPass))
                 {
+                    Console.WriteLine(list[i].userID);
+                    Console.WriteLine("yay");
                     if (savedRole.Equals("Student"))
                     {
                         registerStudent(list[i].userID);
@@ -115,6 +117,11 @@ namespace TutorManagementiOS.ViewModelsRegister
                     {
                         registerTeacher(list[i].userID);
                     }
+                    nav();
+                }
+                else
+                {
+                    Console.WriteLine("massive ouch");
                 }
             }
         }
