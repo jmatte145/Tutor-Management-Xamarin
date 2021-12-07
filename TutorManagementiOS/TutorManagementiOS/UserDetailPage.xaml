@@ -26,17 +26,17 @@
             
              <Button x:Name="btnAuth" Text="Authorization Yes/No" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5"/>
+                        BackgroundColor="#BF043055"/>
              <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5"/>
+                        BackgroundColor="#BF043055"/>
              <Button x:Name="btnDeleteRecord" Text="Delete Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5" Clicked="btnDeleteRecord_Clicked"/>
+                        BackgroundColor="#BF043055" Clicked="btnDeleteRecord_Clicked"/>
              <Label/>
              <Button Text="Home" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5" Clicked="goHome"/>
+                        BackgroundColor="#BF043055" Clicked="goHome"/>
         </StackLayout>
             </ScrollView>
                     </DataTemplate>
