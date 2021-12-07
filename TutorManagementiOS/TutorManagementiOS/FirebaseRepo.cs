@@ -12,7 +12,7 @@ namespace TutorManagementiOS
     public class FirebaseRepo
     {
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://testprojforios-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
 
         // User //
         public async Task<string> SaveUser(UserClass user)
