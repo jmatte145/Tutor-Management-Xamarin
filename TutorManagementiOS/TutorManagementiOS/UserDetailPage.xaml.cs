@@ -24,8 +24,19 @@ namespace TutorManagementiOS
 
         }
 
+        async void btnDeleteRecord_Clicked(object sender, EventArgs e)
+        {
+            UserClass user1 = await db.GetByUserId(AuthorizationPage.userId);
+            await db.DeleteUser(user1);
+            nav();
+        }
 
         async void goHome(object sender, EventArgs e)
+        {
+            nav();
+        }
+
+        async void nav()
         {
             await Navigation.PushAsync(new HomeAdmin());
         }

@@ -24,15 +24,15 @@
                 </StackLayout>  
             </Frame>
             
-             <Button Text="Authorization Yes/No" TextColor="White"  
+             <Button x:Name="btnAuth" Text="Authorization Yes/No" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#088da5"/>
-             <Button Text="Update Record" TextColor="White"  
+             <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#088da5"/>
-             <Button Text="Delete Record" TextColor="White"  
+             <Button x:Name="btnDeleteRecord" Text="Delete Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#088da5"/>
+                        BackgroundColor="#088da5" Clicked="btnDeleteRecord_Clicked"/>
              <Label/>
              <Button Text="Home" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  

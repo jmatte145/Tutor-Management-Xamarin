@@ -52,6 +52,12 @@ namespace TutorManagementiOS
             return (await firebaseClient.Child(nameof(UserClass) + "/" + userID).OnceSingleAsync<UserClass>());
         }
 
+        public async Task<bool> DeleteUser(UserClass user)
+        {
+            await firebaseClient.Child(nameof(UserClass) + "/" + user.userID).DeleteAsync();
+            return true;
+        }
+
         public async Task<bool> UpdateUser(UserClass user)
         {
             await firebaseClient.Child(nameof(UserClass) + "/" + user.userID).PutAsync(JsonConvert.SerializeObject(user));
