@@ -95,6 +95,12 @@ namespace TutorManagementiOS
             + "/" + sID).OnceSingleAsync<Student>());
         }
 
+        public async Task<bool> DeleteStudent(Student student)
+        {
+            await firebaseClient.Child(nameof(Student) + "/" + student.genUserID).DeleteAsync();
+            return true;
+        }
+
         public async Task<bool> UpdateStudent(Student student)
         {
             await firebaseClient.Child(nameof(Student) + "/" + student.genUserID).PutAsync(JsonConvert.SerializeObject(student));
@@ -132,6 +138,12 @@ namespace TutorManagementiOS
             + "/" + sID).OnceSingleAsync<Tutor>());
         }
 
+        public async Task<bool> DeleteTutor(Tutor tutor)
+        {
+            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.genUserID).DeleteAsync();
+            return true;
+        }
+
         public async Task<bool> UpdateTutor(Tutor tutor)
         {
             await firebaseClient.Child(nameof(Tutor) + "/" + tutor.genUserID).PutAsync(JsonConvert.SerializeObject(tutor));
@@ -167,6 +179,12 @@ namespace TutorManagementiOS
         {
             return (await firebaseClient.Child(nameof(Teacher)
             + "/" + sID).OnceSingleAsync<Teacher>());
+        }
+
+        public async Task<bool> DeleteTeacher(Teacher teacher)
+        {
+            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.genUserID).DeleteAsync();
+            return true;
         }
 
         public async Task<bool> UpdateTeacher(Teacher teacher)
