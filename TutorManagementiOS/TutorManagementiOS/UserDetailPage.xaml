@@ -26,7 +26,7 @@
             
              <Button x:Name="btnAuth" Text="Authorization Yes/No" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055"/>
+                        BackgroundColor="#BF043055" Clicked="btnAuth_Clicked"/>
              <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#BF043055"/>

@@ -23,6 +23,21 @@ namespace TutorManagementiOS
             collectionView.ItemsSource = list;
 
         }
+        async void btnAuth_Clicked(object sender, EventArgs e)
+        {
+            List<UserClass> list = new List<UserClass>();
+            list = await db.GetAllUsers();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].userID.Equals(AuthorizationPage.userId))
+                {
+                    list[i].approvalStatus = !list[i].approvalStatus;
+                    await db.UpdateUser(list[i]);
+                    _ = DisplayAlert("Status Updated", "The approval status is now: " + list[i].approvalStatus, "ok");
+                    nav();
+                }
+            }
+        }
 
         async void btnDeleteRecord_Clicked(object sender, EventArgs e)
         {
@@ -31,7 +46,7 @@ namespace TutorManagementiOS
             nav();
         }
 
-        async void goHome(object sender, EventArgs e)
+        void goHome(object sender, EventArgs e)
         {
             nav();
         }
