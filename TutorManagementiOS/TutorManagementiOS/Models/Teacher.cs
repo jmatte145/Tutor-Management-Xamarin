@@ -6,7 +6,8 @@ namespace TutorManagementiOS.Models
 {
     public class Teacher
     {
-        public string genUserID { get; set; }
         public string teacherID { get; set; }
+        public string genUserID { get; set; }
+
     }
 }
