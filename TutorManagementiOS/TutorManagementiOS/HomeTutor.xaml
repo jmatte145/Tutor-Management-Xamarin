@@ -4,6 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TutorManagementiOS.HomeTutor">
     <ContentPage.Content>
-        <Label></Label>
+        <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+           
+            <BoxView HeightRequest="10"/> 
+
+            <Button Text="User Creation Requests" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="goAuthorization"/>
+
+            <Button Text="Logout" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="goLogin"/>
+        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -57,7 +57,7 @@ namespace TutorManagementiOS.ViewModels
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].userName.Equals(user) & list[i].password.Equals(password)) 
+                    if (list[i].userName.Equals(user) & list[i].password.Equals(password) & list[i].approvalStatus==true) 
                     {
                         Console.WriteLine("hello");
                         var listing1 = await db.GetAllStudents();

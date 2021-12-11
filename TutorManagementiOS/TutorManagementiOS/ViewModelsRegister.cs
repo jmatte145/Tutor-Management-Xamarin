@@ -127,7 +127,9 @@ namespace TutorManagementiOS.ViewModelsRegister
         {
             await db.SaveStudent(new Student
             {
-                genUserID = id
+                genUserID = id,
+                totalVisits = null,
+                totalHours = null
             });
         }
 
@@ -135,7 +137,9 @@ namespace TutorManagementiOS.ViewModelsRegister
         {
             await db.SaveTutor(new Tutor
             {
-                genUserID = id
+                genUserID = id,
+                totalGrade = null,
+                totalHours = null
             });
         }
 
