@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -91,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TutorManagementiOS\TutorManagementiOS.csproj">
-      <Project>{A2C04507-AC8B-4E0E-9E16-CB9B83597E3F}</Project>
+      <Project>{0B86ACB4-6DD9-4BB1-8AD2-D2BAC075A3EA}</Project>
       <Name>TutorManagementiOS</Name>
     </ProjectReference>
   </ItemGroup>

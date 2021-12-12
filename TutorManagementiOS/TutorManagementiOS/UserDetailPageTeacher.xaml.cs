@@ -5,10 +5,10 @@ using Xamarin.Forms;
 
 namespace TutorManagementiOS
 {
-    public partial class UserDetailPage : ContentPage
+    public partial class UserDetailPageTeacher : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
-        public UserDetailPage()
+        public UserDetailPageTeacher()
         {
             InitializeComponent();
             displayUser();
