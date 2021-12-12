@@ -9,9 +9,14 @@
            
             <BoxView HeightRequest="10"/> 
 
-            <Button Text="User Creation Requests" TextColor="White"  
+            <Button Text="Create Session" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#BF043055" Clicked="goAuthorization"/>
+                    BackgroundColor="#BF043055" Clicked="createSession"/>
+            
+                <Button Text="View Sessions" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="ViewSession"/>
+            
 
             <Button Text="Logout" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  

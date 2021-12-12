@@ -15,9 +15,13 @@ namespace TutorManagementiOS
         {
             await Navigation.PushAsync(new LoginPage()); ;
         }
-        async void goAuthorization(object sender, EventArgs args)
+        async void createSession(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new AuthorizationPage()); ;
+            await Navigation.PushAsync(new CreateSessionPage()); ;
+        }
+        async void vieweSession(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new ViewSessionPage()); ;
         }
     }
 }
