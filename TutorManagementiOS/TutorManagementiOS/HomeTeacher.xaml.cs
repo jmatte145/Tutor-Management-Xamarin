@@ -22,15 +22,17 @@ namespace TutorManagementiOS
         }
         async void manageStudent(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new UserDetailPageStudentTeacher()); ;
+            await Navigation.PushAsync(new ViewStudents()); ;
         }
         async void gradeSessions(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new viewSession()); ;         
+            //change for teacher
+            await Navigation.PushAsync(new ViewSessionPage()); ;         
         }
         async void viewTutorHours(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new AuthorizationPage()); ;
+            //change for teacher
+            await Navigation.PushAsync(new UserDetailPageTutor()); ;
         }
 
 

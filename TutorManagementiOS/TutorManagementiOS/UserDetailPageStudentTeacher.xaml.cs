@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TutorManagementiOS.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,15 +21,12 @@ namespace TutorManagementiOS
         }
         async void displayUser()
         {
-            //List<UserClass> list = await App.Database.GetPeopleAsyncUsr();
-            //var list= await App.Database.GetPeopleAsyncUsr();
-
-            List<UserClass> list = new List<UserClass>();
-            list.Add(await db.GetByUserId(AuthorizationPage.userId));
+            List<Student> list = new List<Student>();
+            list.Add(await db.GetStudentByID(ViewStudents.genUserID));
             collectionView.ItemsSource = list;
 
             List<Student> lister = new List<Student>();
-            lister.Add(await db.GetStudentByID(HomeTeacher.typeUserId));
+            lister.Add(await db.GetStudentByID(ViewStudents.typeUserId));
             collectionView2.ItemsSource = lister;
 
         }
@@ -39,7 +36,7 @@ namespace TutorManagementiOS
             list = await db.GetAllUsers();
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].userID.Equals(AuthorizationPage.userId))
+                if (list[i].userID.Equals(ViewStudents.genUserID))
                 {
                     list[i].approvalStatus = !list[i].approvalStatus;
                     await db.UpdateUser(list[i]);

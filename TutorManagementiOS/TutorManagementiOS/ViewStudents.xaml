@@ -15,10 +15,9 @@
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
+
                                         <Label Grid.Row="2" Grid.Column="0" Text="User Details:" TextColor="White" FontSize="Small"/>
-                                        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding userID}" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
+                                        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding genUserID}" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
                                     </Grid>
                                 </StackLayout>
                             </Frame>

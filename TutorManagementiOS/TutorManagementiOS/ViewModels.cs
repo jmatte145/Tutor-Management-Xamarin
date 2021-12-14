@@ -118,7 +118,7 @@ namespace TutorManagementiOS.ViewModels
         }
         async void navTeacher()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new HomeStudent());
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeTeacher());
         }
         async void navAdmin()
         {
