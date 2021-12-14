@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TutorManagementiOS.Models;
 using Xamarin.Forms;
 
 namespace TutorManagementiOS
@@ -21,6 +21,10 @@ namespace TutorManagementiOS
             List<UserClass> list = new List<UserClass>();
             list.Add(await db.GetByUserId(AuthorizationPage.userId));
             collectionView.ItemsSource = list;
+
+            List<Teacher> lister = new List<Teacher>();
+            lister.Add(await db.GetTeacherByID(AuthorizationPage.typeUserId));
+            collectionView2.ItemsSource = lister;
 
         }
         async void btnAuth_Clicked(object sender, EventArgs e)
@@ -44,6 +48,11 @@ namespace TutorManagementiOS
             UserClass user1 = await db.GetByUserId(AuthorizationPage.userId);
             await db.DeleteUser(user1);
             nav();
+        }
+
+        async void btnUpdateRecord_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserUpdatePageTeacher());
         }
 
         void goHome(object sender, EventArgs e)

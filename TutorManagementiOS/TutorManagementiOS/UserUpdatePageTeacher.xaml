@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TutorManagementiOS.UserUpdatePageTeacher">
+    <ContentPage.Content>  
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
+            <BoxView HeightRequest="10"/> 
+            <Frame BackgroundColor="#BF043055" HasShadow="False">  
+                <StackLayout Orientation="Vertical" Spacing="10">  
+                    <Entry x:Name="Fname" Text="{Binding Fname}" Placeholder="First Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    <Label/>
+                    <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>  
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>
+                    
+                </StackLayout>
+                </Frame>
+                <BoxView HeightRequest="10"/> 
+                <Frame BackgroundColor="#BF043055" HasShadow="False">  
+                <StackLayout Orientation="Vertical" Spacing="10">  
+                    <!--<Entry x:Name="TotalGrade" Text="{Binding TotalGrade}" Placeholder=""   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    <Entry x:Name="TotalHours" Text="{Binding TotalHours}" Placeholder=""   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>-->
+
+                </StackLayout>
+                </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="Update" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+            <Button Text="Home" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" Clicked="nav"/>
+        </StackLayout>  
+    </ContentPage.Content>  
+</ContentPage>

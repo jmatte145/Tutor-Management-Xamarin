@@ -13,7 +13,7 @@ namespace TutorManagementiOS
     {
         // This is a test comment // 
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorapp-daf4d-default-rtdb.firebaseio.com/");
 
         // User //
         public async Task<string> SaveUser(UserClass user)
@@ -87,7 +87,10 @@ namespace TutorManagementiOS
                 Child(nameof(Student)).OnceAsync<Student>()).Select(
                 item => new Student
                 {
-                    genUserID = item.Object.genUserID
+                    studentID = item.Key,
+                    genUserID = item.Object.genUserID,
+                    totalVisits = item.Object.totalVisits,
+                    totalHours = item.Object.totalHours,
                 }).ToList();
         }
         public async Task<Student> GetStudentByID(string sID)
@@ -98,18 +101,17 @@ namespace TutorManagementiOS
 
         public async Task<bool> DeleteStudent(Student student)
         {
-            await firebaseClient.Child(nameof(Student) + "/" + student.genUserID).DeleteAsync();
+            await firebaseClient.Child(nameof(Student) + "/" + student.studentID).DeleteAsync();
             return true;
         }
 
         public async Task<bool> UpdateStudent(Student student)
         {
-            await firebaseClient.Child(nameof(Student) + "/" + student.genUserID).PutAsync(JsonConvert.SerializeObject(student));
+            await firebaseClient.Child(nameof(Student) + "/" + student.studentID).PutAsync(JsonConvert.SerializeObject(student));
             return true;
         }
-
-        // Tutor // 
-        public async Task<bool> SaveTutor(Tutor tutor)
+            // Tutor // 
+            public async Task<bool> SaveTutor(Tutor tutor)
         {
             var data = await firebaseClient.Child(nameof(Tutor)).
                 PostAsync(JsonConvert.SerializeObject(tutor));
@@ -130,7 +132,10 @@ namespace TutorManagementiOS
                 Child(nameof(Tutor)).OnceAsync<Tutor>()).Select(
                 item => new Tutor
                 {
-                    genUserID = item.Object.genUserID
+                    tutorID = item.Key,
+                    genUserID = item.Object.genUserID,
+                    totalGrade = item.Object.totalGrade,
+                    totalHours = item.Object.totalHours
                 }).ToList();
         }
         public async Task<Tutor> GetTutorByID(string sID)
@@ -141,13 +146,13 @@ namespace TutorManagementiOS
 
         public async Task<bool> DeleteTutor(Tutor tutor)
         {
-            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.genUserID).DeleteAsync();
+            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.tutorID).DeleteAsync();
             return true;
         }
 
         public async Task<bool> UpdateTutor(Tutor tutor)
         {
-            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.genUserID).PutAsync(JsonConvert.SerializeObject(tutor));
+            await firebaseClient.Child(nameof(Tutor) + "/" + tutor.tutorID).PutAsync(JsonConvert.SerializeObject(tutor));
             return true;
         }
 
@@ -173,6 +178,7 @@ namespace TutorManagementiOS
                 Child(nameof(Teacher)).OnceAsync<Teacher>()).Select(
                 item => new Teacher
                 {
+                    teacherID = item.Key,
                     genUserID = item.Object.genUserID
                 }).ToList();
         }
@@ -184,13 +190,13 @@ namespace TutorManagementiOS
 
         public async Task<bool> DeleteTeacher(Teacher teacher)
         {
-            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.genUserID).DeleteAsync();
+            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.teacherID).DeleteAsync();
             return true;
         }
 
         public async Task<bool> UpdateTeacher(Teacher teacher)
         {
-            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.genUserID).PutAsync(JsonConvert.SerializeObject(teacher));
+            await firebaseClient.Child(nameof(Teacher) + "/" + teacher.teacherID).PutAsync(JsonConvert.SerializeObject(teacher));
             return true;
         }
     }
