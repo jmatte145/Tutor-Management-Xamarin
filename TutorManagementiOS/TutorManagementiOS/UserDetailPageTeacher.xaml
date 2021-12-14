@@ -2,7 +2,8 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="TutorManagementiOS.UserDetailPageTeacher">
+    x:Class="TutorManagementiOS.UserDetailPageTeacher"
+    Title="Manage Teacher">
 <ContentPage.Content>
     <ScrollView>
     <StackLayout>
@@ -37,7 +38,7 @@
         </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <CollectionView x:Name="collectionView2" HeightRequest="250">  <!--Set manually because xamarin sucks-->
+        <CollectionView x:Name="collectionView2" HeightRequest="250">  
         <CollectionView.ItemTemplate>
         <DataTemplate>
         <StackLayout Orientation="Vertical" Padding="10" Spacing="10">  

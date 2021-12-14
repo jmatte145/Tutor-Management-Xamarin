@@ -27,10 +27,10 @@ namespace TutorManagementiOS
                 _ = DisplayAlert("Error", "DB empty...", "ok");
             }
         }
-        async void goDetail(object sender, CheckedChangedEventArgs e)
+        async void goDetail(object sender, EventArgs e)
         {
-            var radiobtn = sender as RadioButton;
-            userId = (string)radiobtn.Content;
+            var button = sender as Button;
+            userId = (string)button.Text;
             List<UserClass> list = await db.GetAllUsers();
 
             for (int i = 0; i < list.Count; i++)
