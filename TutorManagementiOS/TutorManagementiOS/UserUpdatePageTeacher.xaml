@@ -43,10 +43,10 @@
                 </Frame>
                 <Button Command="{Binding SubmitCommand}" Text="Update" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" />
+                    BackgroundColor="#BF043055" />
                 <Button Text="Home" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" Clicked="nav"/>
+                    BackgroundColor="#BF043055" Clicked="nav"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>  
