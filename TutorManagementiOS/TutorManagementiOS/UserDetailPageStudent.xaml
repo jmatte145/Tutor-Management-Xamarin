@@ -27,7 +27,9 @@
                             <Label Grid.Row="4" Grid.Column="1" Text="{Binding password}" TextColor="White" FontSize="Small"/>
                             <Label Grid.Row="5" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
                             <Label Grid.Row="5" Grid.Column="1" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
-                        </Grid>
+                            <Label Grid.Row="6" Grid.Column="0" Text="User Type:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="6" Grid.Column="1" Text="Student" TextColor="White" FontSize="Small"/>
+                         </Grid>
                 </StackLayout>  
             </Frame>
         </StackLayout>
