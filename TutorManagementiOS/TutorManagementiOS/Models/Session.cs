@@ -9,7 +9,6 @@ namespace TutorManagementiOS
         public string sessionID { get; set; }
         public string tutorID { get; set; }
         public string sessionMembers { get; set; }
-        public string sessionNotes { get; set; }
         public string date { get; set; }
         public string time { get; set; }
         public string duration { get; set; }

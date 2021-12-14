@@ -48,7 +48,7 @@ namespace TutorManagementiOS.ViewModels
 
             list = await db.GetAllUsers();
             bool success = false;
-            if (user == "admin" || password == "secret")
+            if (user == "admin" && password == "secret")
             {
                 navAdmin();
                 DisplayValidLoginPrompt();
@@ -57,7 +57,7 @@ namespace TutorManagementiOS.ViewModels
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].userName.Equals(user) & list[i].password.Equals(password) & list[i].approvalStatus==true) 
+                    if (list[i].userName.Equals(user) & list[i].password.Equals(password) & list[i].approvalStatus == true)
                     {
                         Console.WriteLine("hello");
                         var listing1 = await db.GetAllStudents();
@@ -80,7 +80,7 @@ namespace TutorManagementiOS.ViewModels
                             {
                                 currentUser = list[i].userID;
                                 //nav tutor home page
-                                nav();
+                                navTutor();
                                 //DisplayValidLoginPrompt();
                             }
                         }
@@ -92,7 +92,7 @@ namespace TutorManagementiOS.ViewModels
                             {
                                 currentUser = list[i].userID;
                                 //nav student home page
-                                nav();
+                                navTeacher();
                                 //DisplayValidLoginPrompt();
                             }
                         }
@@ -109,6 +109,14 @@ namespace TutorManagementiOS.ViewModels
 
 
         async void nav()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeStudent());
+        }
+        async void navTutor()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeTutor());
+        }
+        async void navTeacher()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new HomeStudent());
         }

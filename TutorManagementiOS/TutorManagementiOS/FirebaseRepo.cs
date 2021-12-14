@@ -13,7 +13,7 @@ namespace TutorManagementiOS
     {
         // This is a test comment // 
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://tutorxamarinproject-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://petclinic-1337-default-rtdb.firebaseio.com/");
 
         // User //
         public async Task<string> SaveUser(UserClass user)
@@ -193,6 +193,57 @@ namespace TutorManagementiOS
             await firebaseClient.Child(nameof(Teacher) + "/" + teacher.genUserID).PutAsync(JsonConvert.SerializeObject(teacher));
             return true;
         }
+
+        //SESSION CRUD
+        public async Task<string> SaveSession(SessionClass session)
+        {
+            var data = await firebaseClient.Child(nameof(SessionClass)).
+                PostAsync(JsonConvert.SerializeObject(session));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return data.Key;
+            }
+            else
+            {
+                return "fail";
+            }
+        }
+
+        public async Task<bool> UpdateSession(SessionClass session)
+        {
+            await firebaseClient.Child(nameof(SessionClass) + "/" + session.sessionID).PutAsync(JsonConvert.SerializeObject(session));
+            return true;
+        }
+        public async Task<bool> DeleteSession(SessionClass session)
+        {
+            await firebaseClient.Child(nameof(SessionClass) + "/" + session.sessionID).DeleteAsync();
+            return true;
+        }
+        public async Task<List<SessionClass>> GetAllSessions()
+        {
+            return (await firebaseClient.
+                Child(nameof(SessionClass)).OnceAsync<SessionClass>()).Select(
+                item => new SessionClass
+                {
+                    sessionID = item.Key,
+                    tutorID = item.Object.tutorID,
+                    sessionMembers = item.Object.sessionMembers,
+                    date = item.Object.date,
+                    time = item.Object.time,
+                    duration= item.Object.duration,
+                    report= item.Object.report,
+                    grade = item.Object.grade,
+                    open = item.Object.open,
+
+                }).ToList();
+        }
+        public async Task<SessionClass> GetSessionByID(string sID)
+        {
+            return (await firebaseClient.Child(nameof(SessionClass)
+            + "/" + sID).OnceSingleAsync<SessionClass>());
+        }
+        //END OF SESSION CRUD
     }
 }
 

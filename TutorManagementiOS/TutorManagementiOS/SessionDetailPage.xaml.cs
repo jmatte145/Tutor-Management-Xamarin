@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace TutorManagementiOS
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SessionDetailPage : ContentPage
+    {
+        FirebaseRepo db = new FirebaseRepo();
+        public SessionDetailPage()
+        {
+            InitializeComponent();
+            displayUser();
+        }
+        async void displayUser()
+        {
+            List<SessionClass> list = new List<SessionClass>();
+            list.Add(await db.GetSessionByID(ViewSessionPage.sessionID));
+            collectionView.ItemsSource = list;
+
+        }
+        async void btnOpen_Clicked(object sender, EventArgs e)
+        {
+            List<SessionClass> list = new List<SessionClass>();
+            list = await db.GetAllSessions();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].sessionID.Equals(ViewSessionPage.sessionID))
+                {
+                    list[i].open = !list[i].open;
+                    await db.UpdateSession(list[i]);
+                    _ = DisplayAlert("Status Updated", "The status of the session is now: " + list[i].open, "ok");
+                    nav();
+                }
+            }
+        }
+        async void btnUpdateRecord_Clicked(object sender, EventArgs e)
+        {
+            SessionClass session1 = await db.GetSessionByID(ViewSessionPage.sessionID);
+            await db.UpdateSession(session1);
+            navUpdate();
+        }
+        async void btnDeleteRecord_Clicked(object sender, EventArgs e)
+        {
+            SessionClass session1 = await db.GetSessionByID(ViewSessionPage.sessionID);
+            await db.DeleteSession(session1);
+            nav();
+        }
+
+        void goHome(object sender, EventArgs e)
+        {
+            nav();
+        }
+
+        async void nav()
+        {
+            await Navigation.PushAsync(new HomeTutor());
+        }
+        async void navUpdate()
+        {
+            await Navigation.PushAsync(new UpdateSessionPage());
+        }
+    }
+}

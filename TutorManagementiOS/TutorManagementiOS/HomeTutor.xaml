@@ -2,7 +2,8 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="TutorManagementiOS.HomeTutor">
+    x:Class="TutorManagementiOS.HomeTutor"
+    Title="Tutor Page">
     <ContentPage.Content>
         <ScrollView>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
@@ -13,9 +14,9 @@
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="createSession"/>
             
-                <Button Text="View Sessions" TextColor="White"  
-                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#BF043055" Clicked="ViewSession"/>
+            <Button Text="View Sessions" TextColor="White"  
+                FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                BackgroundColor="#BF043055" Clicked="viewSession"/>
             
 
             <Button Text="Logout" TextColor="White"  
