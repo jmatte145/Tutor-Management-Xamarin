@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorManagementiOS.ViewStudents">
+    <ContentPage.Content>
+        <CollectionView x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ScrollView>
+                        <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
+                            <BoxView HeightRequest="10"/>
+                            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                                <StackLayout Orientation="Vertical" Spacing="10">
+                                    <Grid Padding="5" RowDefinitions="Auto, *">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Text="User Details:" TextColor="White" FontSize="Small"/>
+                                        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding userID}" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
