@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using TutorManagementiOS.Models;
 using Xamarin.Forms;
 
 namespace TutorManagementiOS
@@ -8,6 +8,7 @@ namespace TutorManagementiOS
     public partial class UserDetailPageStudent : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
+
         public UserDetailPageStudent()
         {
             InitializeComponent();
@@ -21,6 +22,10 @@ namespace TutorManagementiOS
             List<UserClass> list = new List<UserClass>();
             list.Add(await db.GetByUserId(AuthorizationPage.userId));
             collectionView.ItemsSource = list;
+
+            List<Student> lister = new List<Student>();
+            lister.Add(await db.GetStudentByID(AuthorizationPage.typeUserId));
+            collectionView2.ItemsSource = lister;
 
         }
         async void btnAuth_Clicked(object sender, EventArgs e)
@@ -44,6 +49,11 @@ namespace TutorManagementiOS
             UserClass user1 = await db.GetByUserId(AuthorizationPage.userId);
             await db.DeleteUser(user1);
             nav();
+        }
+
+        async void btnUpdateRecord_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserUpdatePageStudent());
         }
 
         void goHome(object sender, EventArgs e)

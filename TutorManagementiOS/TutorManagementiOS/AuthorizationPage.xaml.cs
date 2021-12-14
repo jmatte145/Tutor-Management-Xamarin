@@ -56,7 +56,7 @@ namespace TutorManagementiOS
                     {
                         if (listing2.Any() & listing2[n].genUserID.Equals(list[i].userID))
                         {
-                            typeUserId = listing1[n].studentID;
+                            typeUserId = listing2[n].tutorID;
                             //nav tutor home page
                             navtutor();
                             //DisplayValidLoginPrompt();
@@ -68,7 +68,7 @@ namespace TutorManagementiOS
                     {
                         if (listing3.Any() & listing3[m].genUserID.Equals(list[i].userID))
                         {
-                            typeUserId = listing1[m].studentID;
+                            typeUserId = listing3[m].teacherID;
                             //nav student home page
                             navteacher();
                             //DisplayValidLoginPrompt();

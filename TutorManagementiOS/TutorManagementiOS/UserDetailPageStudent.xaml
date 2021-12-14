@@ -4,44 +4,66 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TutorManagementiOS.UserDetailPageStudent">
 <ContentPage.Content>
-        <CollectionView x:Name="collectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-        <ScrollView>
+    <ScrollView>
+    <StackLayout>
+
+        <CollectionView x:Name="collectionView" HeightRequest="250">
+        <CollectionView.ItemTemplate>
+        <DataTemplate>
         <StackLayout Orientation="Vertical" Padding="10" Spacing="10">  
             <BoxView HeightRequest="10"/> 
             <Frame BackgroundColor="#BF043055" HasShadow="False">  
                 <StackLayout Orientation="Vertical" Spacing="10">  
                         <Grid Padding="5" RowDefinitions="Auto, *">
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="2" Grid.Column="0" Text="{Binding email}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="3" Grid.Column="0" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="4" Grid.Column="0" Text="{Binding password}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="5" Grid.Column="0" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="First Name:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Last Name:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Email:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding email}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="3" Grid.Column="0" Text="Username:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="4" Grid.Column="0" Text="Password:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding password}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="5" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
                         </Grid>
-
                 </StackLayout>  
             </Frame>
+        </StackLayout>
+        </DataTemplate>
+        </CollectionView.ItemTemplate>
+        </CollectionView>
 
-
+        <CollectionView x:Name="collectionView2" HeightRequest="250">  <!--Set manually because xamarin sucks-->
+        <CollectionView.ItemTemplate>
+        <DataTemplate>
+        <StackLayout Orientation="Vertical" Padding="10" Spacing="10">  
             <BoxView HeightRequest="10"/> 
             <Frame BackgroundColor="#BF043055" HasShadow="False">  
                 <StackLayout Orientation="Vertical" Spacing="10">  
                         <Grid Padding="5" RowDefinitions="Auto, *">
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding totalVisits}" TextColor="White" FontSize="Small"/>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding totalHours}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="Total Visits:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding totalVisits}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Total Hours:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding totalHours}" TextColor="White" FontSize="Small"/>
                         </Grid>
 
                 </StackLayout>  
             </Frame>
-            
+        </StackLayout>
+        </DataTemplate>
+        </CollectionView.ItemTemplate>
+        </CollectionView>
+        <BoxView HeightRequest="10"/>
+             <Frame>
+                 <StackLayout>
              <Button x:Name="btnAuth" Text="Authorization Yes/No" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#BF043055" Clicked="btnAuth_Clicked"/>
              <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055"/>
+                        BackgroundColor="#BF043055" Clicked="btnUpdateRecord_Clicked"/>
              <Button x:Name="btnDeleteRecord" Text="Delete Record" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#BF043055" Clicked="btnDeleteRecord_Clicked"/>
@@ -49,11 +71,9 @@
              <Button Text="Home" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#BF043055" Clicked="goHome"/>
-        </StackLayout>
-            </ScrollView>
-                    </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-       
+                      </StackLayout>
+             </Frame>
+    </StackLayout>
+    </ScrollView>
     </ContentPage.Content>  
 </ContentPage>
