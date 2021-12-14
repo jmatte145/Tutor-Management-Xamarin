@@ -3,49 +3,51 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TutorManagementiOS.UserUpdatePageTutor">
-    <ContentPage.Content>  
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">  
-            <BoxView HeightRequest="10"/> 
-            <Frame BackgroundColor="#BF043055" HasShadow="False">  
-                <StackLayout Orientation="Vertical" Spacing="10">  
-                    <Entry x:Name="Fname" Text="{Binding Fname}" Placeholder="First Name"   
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <BoxView HeightRequest="10"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="Fname" Text="{Binding Fname}" Placeholder="First Name"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
+                        <Entry x:Name="Lname" Text="{Binding Lname}" Placeholder="Last Name"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    <Label/>
-                    <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
+                        <Label/>
+                        <Entry x:Name="User" Text="{Binding User}" Placeholder="Username"   
                            PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>  
-                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           TextColor="White"/>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
                            PlaceholderColor="White" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="White"/>
-                    
-                </StackLayout>
+
+                    </StackLayout>
                 </Frame>
-                <BoxView HeightRequest="10"/> 
-                <Frame BackgroundColor="#BF043055" HasShadow="False">  
-                <StackLayout Orientation="Vertical" Spacing="10">  
-                    <Entry x:Name="TotalGrade" Text="{Binding TotalGrade}" Placeholder=""   
+                <BoxView HeightRequest="10"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="TotalGrade" Text="{Binding TotalGrade}" Placeholder="Enter Total Grade"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
-                    <Entry x:Name="TotalHours" Text="{Binding TotalHours}" Placeholder=""   
+                        <Entry x:Name="TotalHours" Text="{Binding TotalHours}" Placeholder="Enter Total Hours"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
 
-                </StackLayout>
+                    </StackLayout>
                 </Frame>
-            <Button Command="{Binding SubmitCommand}" Text="Update" TextColor="White"  
+                <Button Command="{Binding SubmitCommand}" Text="Update" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#088da5" />
-            <Button Text="Home" TextColor="White"  
+                <Button Text="Home" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#088da5" Clicked="nav"/>
-        </StackLayout>  
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>  
 </ContentPage>
