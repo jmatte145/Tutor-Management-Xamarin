@@ -18,9 +18,9 @@
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="goCourse"/>
 
-                <Button Text="Add a Course" TextColor="White"  
-                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#BF043055" Clicked="goCourseInfo"/>
+                <Button Text="Add a Course" TextColor="White" 
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" 
+                        BackgroundColor="#BF043055" Clicked="goCourseInfo"/>
 
                 <Button Text="Logout" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  

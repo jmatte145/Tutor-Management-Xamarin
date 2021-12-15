@@ -19,6 +19,7 @@
                                         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding courseName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="2" Grid.Column="0" Text="Course Number:" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="2" Grid.Column="1" Text="{Binding courseNumber}" TextColor="White" FontSize="Small"/>
+                                        <Button x:Name="btnModifyCourse" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="Modify Course" TextColor="#BF043055" FontSize="Micro" Clicked="btnModifyCourse_Clicked" />
                                     </Grid>
                                 </StackLayout>
                             </Frame>

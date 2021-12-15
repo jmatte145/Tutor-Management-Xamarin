@@ -27,7 +27,7 @@ namespace TutorManagementiOS
 
         async void goCourseInfo(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterCoursePage()); ;
+            await Navigation.PushAsync(new CourseDetailsPage()); ;
         }
     }
 }
