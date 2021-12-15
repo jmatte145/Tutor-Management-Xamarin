@@ -82,9 +82,12 @@ namespace TutorManagementiOS
             }
         }
         public ICommand SubmitCommand { protected set; get; }
+        public ICommand SubmitTeacherCommand { protected set; get; }
+        
         public ViewModelUpdateStudent()
         {
             SubmitCommand = new Command(OnSubmit);
+            SubmitTeacherCommand = new Command(OnTeacherSubmit);
         }
         public void OnSubmit()
         {
@@ -96,7 +99,50 @@ namespace TutorManagementiOS
                 DisplayInvalidLoginPrompt();
 
         }
-        
+        public void OnTeacherSubmit()
+        {
+            if (!(string.IsNullOrWhiteSpace(User) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(Fname) || string.IsNullOrWhiteSpace(Lname) || string.IsNullOrWhiteSpace(Email)))
+            {
+                updateTeacherUser();
+            }
+            else
+                DisplayInvalidLoginPrompt();
+
+        }
+        async void updateTeacherUser()
+        {
+            List<UserClass> list = await db.GetAllUsers();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].userID.Equals(ViewStudents.genUserID))
+                {
+                    list[i].firstName = fname;
+                    list[i].lastName = lname;
+                    list[i].email = email;
+                    list[i].userName = user;
+                    list[i].password = password;
+                    await db.UpdateUser(list[i]);
+                }
+            }
+            List<Student> lister = await db.GetAllStudents();
+            Console.WriteLine(AuthorizationPage.typeUserId);
+            for (int n = 0; n < lister.Count; n++)
+            {
+                if (lister[n].studentID.Equals(ViewStudents.genUserID))
+                {
+                    if (string.IsNullOrWhiteSpace(TotalVisits))
+                        lister[n].totalVisits = null;
+                    else
+                        lister[n].totalVisits = totalVisits;
+                    if (string.IsNullOrWhiteSpace(totalHours))
+                        lister[n].totalHours = null;
+                    else
+                        lister[n].totalHours = totalHours;
+                    await db.UpdateStudent(lister[n]);
+                }
+            }
+            await Application.Current.MainPage.Navigation.PushAsync(new UserDetailPageStudentTeacher());
+        }
         async void updateUser()
         {
             List<UserClass> list = await db.GetAllUsers();
