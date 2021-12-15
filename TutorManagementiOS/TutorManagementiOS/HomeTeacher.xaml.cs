@@ -32,7 +32,7 @@ namespace TutorManagementiOS
         async void viewTutorHours(object sender, EventArgs args)
         {
             //change for teacher
-            await Navigation.PushAsync(new UserDetailPageTutor()); ;
+            await Navigation.PushAsync(new ViewTutors()); ;
         }
 
 

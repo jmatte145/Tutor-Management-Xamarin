@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace TutorManagementiOS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ViewStudents : ContentPage
+    public partial class ViewTutors : ContentPage
     {
         public static string genUserID;
         public static string typeUserId;
         FirebaseRepo db = new FirebaseRepo();
-        public ViewStudents()
+        public ViewTutors()
         {
             InitializeComponent();
             displayUsers();
@@ -23,23 +23,9 @@ namespace TutorManagementiOS
         async void displayUsers()
         {
             List<Student> list = await db.GetAllStudents();
-            List<UserClass> list2 = await db.GetAllUsers();
-
             if (list.Any())
             {
-                List<UserClass> list3 = new List<UserClass>();
-                for (int i = 0; i < list.Count; i++)
-                {
-                    for(int y=0; y <list2.Count; y++)
-                    {
-                        if (list2[y].userID == list[i].genUserID)
-                        {
-                            list3.Add(list2[y]);
-                        }
-                    }
-                    
-                }
-                collectionView.ItemsSource = list3.ToList<UserClass>();
+                collectionView.ItemsSource = await db.GetAllStudents();
             }
             else
             {
@@ -56,7 +42,7 @@ namespace TutorManagementiOS
             {
                 if (list[i].genUserID.Equals(genUserID))
                 {
-                    navstudent();          
+                    navstudent();
                 }
             }
 
@@ -67,6 +53,6 @@ namespace TutorManagementiOS
             await Navigation.PushAsync(new UserDetailPageStudent()); ;
 
         }
-  
+
     }
 }

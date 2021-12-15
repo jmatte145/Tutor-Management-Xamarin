@@ -10,33 +10,34 @@ using Xamarin.Forms.Xaml;
 namespace TutorManagementiOS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserDetailPageStudentTeacher : ContentPage
+    public partial class UserDetailPageTutorTeacher : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
-
-        public UserDetailPageStudentTeacher()
+        public UserDetailPageTutorTeacher()
         {
             InitializeComponent();
             displayUser();
         }
         async void displayUser()
         {
-            List<Student> list = new List<Student>();
-            list.Add(await db.GetStudentByID(ViewStudents.genUserID));
+
+            List<UserClass> list = new List<UserClass>();
+            list.Add(await db.GetByUserId(AuthorizationPage.userId));
             collectionView.ItemsSource = list;
 
-            List<Student> lister = new List<Student>();
-            lister.Add(await db.GetStudentByID(ViewStudents.typeUserId));
+            List<Tutor> lister = new List<Tutor>();
+            lister.Add(await db.GetTutorByID(AuthorizationPage.typeUserId));
             collectionView2.ItemsSource = lister;
 
         }
+
         async void btnAuth_Clicked(object sender, EventArgs e)
         {
             List<UserClass> list = new List<UserClass>();
             list = await db.GetAllUsers();
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].userID.Equals(ViewStudents.genUserID))
+                if (list[i].userID.Equals(AuthorizationPage.userId))
                 {
                     list[i].approvalStatus = !list[i].approvalStatus;
                     await db.UpdateUser(list[i]);
@@ -55,7 +56,7 @@ namespace TutorManagementiOS
 
         async void btnUpdateRecord_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserUpdatePageStudent());
+            await Navigation.PushAsync(new UserUpdatePageTutor());
         }
 
         void goHome(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace TutorManagementiOS
 
         async void nav()
         {
-            await Navigation.PushAsync(new HomeTeacher());
+            await Navigation.PushAsync(new HomeAdmin());
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorManagementiOS.ViewStudents"
-             Title="Manage Students">
+             x:Class="TutorManagementiOS.ViewTutors"
+             Title="View Tutors">
     <ContentPage.Content>
         <CollectionView x:Name="collectionView">
             <CollectionView.ItemTemplate>
@@ -17,8 +17,7 @@
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="1" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="0" Text="User Details:" TextColor="White" FontSize="Small"/>
+
                                         <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding userID}" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
                                     </Grid>
                                 </StackLayout>
