@@ -26,7 +26,7 @@ namespace TutorManagementiOS
             collectionView.ItemsSource = list;
 
             List<Student> list2 = new List<Student>();
-            list2.Add(await db.GetStudentByID(ViewStudents.typeUserId));
+            list2.Add(await db.GetStudentByID(ViewStudents.studentID));
             collectionView2.ItemsSource = list2;
 
         }
@@ -56,7 +56,7 @@ namespace TutorManagementiOS
         async void btnUpdateRecord_Clicked(object sender, EventArgs e)
         {
             //do for teacher
-            await Navigation.PushAsync(new UserUpdatePageStudent());
+            await Navigation.PushAsync(new UserUpdatePageStudentTeacher());
         }
 
         void goHome(object sender, EventArgs e)

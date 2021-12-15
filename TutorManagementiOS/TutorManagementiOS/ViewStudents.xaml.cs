@@ -13,7 +13,7 @@ namespace TutorManagementiOS
     public partial class ViewStudents : ContentPage
     {
         public static string genUserID;
-        public static string typeUserId;
+        public static string studentID;
         FirebaseRepo db = new FirebaseRepo();
         public ViewStudents()
         {
@@ -56,7 +56,15 @@ namespace TutorManagementiOS
             {
                 if (list[i].genUserID.Equals(genUserID))
                 {
-                    navstudent();          
+                    var listing1 = await db.GetAllStudents();
+                    for (int a = 0; a < listing1.Count; a++)
+                    {
+                        if (listing1.Any() & listing1[a].genUserID.Equals(list[i].genUserID))
+                        {
+                            studentID = listing1[a].studentID;
+                            navstudent();
+                        }
+                    }        
                 }
             }
 
