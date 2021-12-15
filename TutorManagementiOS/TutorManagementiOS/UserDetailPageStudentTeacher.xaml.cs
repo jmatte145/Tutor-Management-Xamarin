@@ -21,13 +21,13 @@ namespace TutorManagementiOS
         }
         async void displayUser()
         {
-            List<Student> list = new List<Student>();
-            list.Add(await db.GetStudentByID(ViewStudents.genUserID));
+            List<UserClass> list = new List<UserClass>();
+            list.Add(await db.GetByUserId(ViewStudents.genUserID));
             collectionView.ItemsSource = list;
 
-            List<Student> lister = new List<Student>();
-            lister.Add(await db.GetStudentByID(ViewStudents.typeUserId));
-            collectionView2.ItemsSource = lister;
+            List<Student> list2 = new List<Student>();
+            list2.Add(await db.GetStudentByID(ViewStudents.typeUserId));
+            collectionView2.ItemsSource = list2;
 
         }
         async void btnAuth_Clicked(object sender, EventArgs e)
@@ -48,13 +48,14 @@ namespace TutorManagementiOS
 
         async void btnDeleteRecord_Clicked(object sender, EventArgs e)
         {
-            UserClass user1 = await db.GetByUserId(AuthorizationPage.userId);
+            UserClass user1 = await db.GetByUserId(ViewStudents.genUserID);
             await db.DeleteUser(user1);
             nav();
         }
 
         async void btnUpdateRecord_Clicked(object sender, EventArgs e)
         {
+            //do for teacher
             await Navigation.PushAsync(new UserUpdatePageStudent());
         }
 

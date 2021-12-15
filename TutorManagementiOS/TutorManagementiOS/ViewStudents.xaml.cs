@@ -64,7 +64,7 @@ namespace TutorManagementiOS
         }
         async void navstudent()
         {
-            await Navigation.PushAsync(new UserDetailPageStudent()); ;
+            await Navigation.PushAsync(new UserDetailPageStudentTeacher()); ;
 
         }
   
