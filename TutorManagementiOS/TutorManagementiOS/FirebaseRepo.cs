@@ -201,7 +201,7 @@ namespace TutorManagementiOS
             return true;
         }
 
-        //SESSION CRUD
+        // Session //
         public async Task<string> SaveSession(SessionClass session)
         {
             var data = await firebaseClient.Child(nameof(SessionClass)).
@@ -250,7 +250,51 @@ namespace TutorManagementiOS
             return (await firebaseClient.Child(nameof(SessionClass)
             + "/" + sID).OnceSingleAsync<SessionClass>());
         }
-        //END OF SESSION CRUD
+
+        // Course Class // 
+        public async Task<bool> SaveCourse(CourseClass course)
+        {
+            var data = await firebaseClient.Child(nameof(CourseClass)).
+                PostAsync(JsonConvert.SerializeObject(course));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<CourseClass>> GetAllCourses()
+        {
+            return (await firebaseClient.
+                Child(nameof(CourseClass)).OnceAsync<CourseClass>()).Select(
+                item => new CourseClass
+                {
+                    courseID = item.Key,
+                    courseName = item.Object.courseName,
+                    courseNumber = item.Object.courseNumber
+                }).ToList();
+        }
+        public async Task<CourseClass> GetCourseByID(string cID)
+        {
+            return (await firebaseClient.Child(nameof(CourseClass)
+            + "/" + cID).OnceSingleAsync<CourseClass>());
+        }
+
+        public async Task<bool> DeleteCourse(CourseClass course)
+        {
+            await firebaseClient.Child(nameof(CourseClass) + "/" + course.courseID).DeleteAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateCourse(CourseClass course)
+        {
+            await firebaseClient.Child(nameof(CourseClass) + "/" + course.courseID).PutAsync(JsonConvert.SerializeObject(course));
+            return true;
+        }
     }
 }
 
