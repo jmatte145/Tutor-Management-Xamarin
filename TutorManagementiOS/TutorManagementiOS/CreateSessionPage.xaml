@@ -10,15 +10,20 @@
 
                 <Frame BackgroundColor="#BF043055" HasShadow="False">
                     <StackLayout Orientation="Vertical" Spacing="10">
-                        <Entry x:Name="Date" Text="{Binding Date}" Placeholder="Date"   
-                           PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>
-                        <Entry x:Name="Time" Text="{Binding Time}" Placeholder="Time"   
-                           PlaceholderColor="White" HeightRequest="40"   
+                        <DatePicker x:Name="DateTest" TextColor="White" 
+                                    HeightRequest="40" Date="{Binding Date}"
+                                    MinimumDate="12/15/2021"
+                                    DateSelected="OnDateSelected"
+                                    />
+                        
+                        <TimePicker x:Name="Time" Time="{Binding Time}"   
+                            HeightRequest="40"   
                            TextColor="White"/>
                         <Entry x:Name="Duration" Text="{Binding Duration}" Placeholder="Duration"   
                            PlaceholderColor="White" HeightRequest="40"    
-                           TextColor="White"/>
+                           TextColor="White"
+                               Keyboard="Numeric"/>
+                        
                     </StackLayout>
                 </Frame>
 

@@ -20,15 +20,6 @@ namespace TutorManagementiOS
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Session, try again", "OK");
 
             InitializeComponent();
-            Date.Completed += (object sender, EventArgs e) =>
-            {
-                Time.Focus();
-            };
-
-            Time.Completed += (object sender, EventArgs e) =>
-            {
-                Duration.Focus();
-            };
 
             Duration.Completed += (object sender, EventArgs e) =>
             {
@@ -36,6 +27,10 @@ namespace TutorManagementiOS
             };
         }
 
+        void OnDateSelected(object sender, EventArgs e)
+        {
+            Time.Focus();
+        }
         async void goLogin(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new LoginPage()); ;
