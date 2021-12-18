@@ -62,7 +62,7 @@ namespace TutorManagementiOS
             Email.Text = list.email;
             User.Text = list.userName;
             Password.Text = list.password;
-            var lister = await db.GetStudentByID(ViewStudents.genUserID);
+            var lister = await db.GetStudentByID(ViewStudents.studentID);
             TotalVisits.Text = lister.totalVisits;
             TotalHours.Text = lister.totalHours;
         }

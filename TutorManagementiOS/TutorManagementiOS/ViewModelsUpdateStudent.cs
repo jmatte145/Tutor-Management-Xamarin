@@ -128,7 +128,7 @@ namespace TutorManagementiOS
             Console.WriteLine(AuthorizationPage.typeUserId);
             for (int n = 0; n < lister.Count; n++)
             {
-                if (lister[n].studentID.Equals(ViewStudents.genUserID))
+                if (lister[n].studentID.Equals(ViewStudents.studentID))
                 {
                     if (string.IsNullOrWhiteSpace(TotalVisits))
                         lister[n].totalVisits = null;
