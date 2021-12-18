@@ -10,7 +10,7 @@
 
                 <Frame BackgroundColor="#BF043055" HasShadow="False">
                     <StackLayout Orientation="Vertical" Spacing="10">
-                        <Entry x:Name="SessionMembers" Text="{Binding SessionMembers}" Placeholder="Date"   
+                        <Entry x:Name="SessionMembers" Text="{Binding SessionMembers}" Placeholder="Members"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
                         <Entry x:Name="Date" Text="{Binding Date}" Placeholder="Date"   
@@ -22,16 +22,13 @@
                         <Entry x:Name="Duration" Text="{Binding Duration}" Placeholder="Duration"   
                            PlaceholderColor="White" HeightRequest="40"    
                            TextColor="White"/>
-                        <Entry x:Name="Report" Text="{Binding Report}" Placeholder="Date"   
-                           PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>
-                        <Entry x:Name="Grade" Text="{Binding Grade}" Placeholder="Date"   
+                        <Entry x:Name="Report" Text="{Binding Report}" Placeholder="Report"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
                     </StackLayout>
                 </Frame>
 
-                <Button Command ="{Binding UpdateCommand}" Text="Create" TextColor="White"  
+                <Button Command ="{Binding UpdateCommand}" Text="Update" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055"/>
 

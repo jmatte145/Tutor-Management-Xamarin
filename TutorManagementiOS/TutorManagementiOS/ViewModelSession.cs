@@ -76,10 +76,12 @@ namespace TutorManagementiOS.ViewModelsSession
      
         public ICommand SubmitCommand { protected set; get; }
         public ICommand UpdateCommand { protected set; get; }
+        public ICommand UpdateTeacherCommand { protected set; get; }
         public ViewModelSession()
         {
             SubmitCommand = new Command(OnSubmit);
             UpdateCommand = new Command(UpdateSubmit);
+            UpdateTeacherCommand = new Command(UpdateSubmitTeacher);
         }
         async void OnSubmit()
         {
@@ -103,6 +105,30 @@ namespace TutorManagementiOS.ViewModelsSession
                 DisplayInvalidLoginPrompt();
 
         }
+        async void UpdateSubmitTeacher()
+        {
+            if (!string.IsNullOrWhiteSpace(Grade))
+            {
+                List<SessionClass> list = new List<SessionClass>();
+                list = await db.GetAllSessions();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].sessionID.Equals(ViewSessionTeacherAccess.sessionID))
+                    {
+                        list[i].grade = grade;
+                        await db.UpdateSession(list[i]);
+
+                        navTeacher();
+                    }
+                }
+
+                navTeacher();
+            }
+            else
+                Console.WriteLine("hello2");
+                DisplayInvalidLoginPrompt();
+
+        }
         async void UpdateSubmit()
         {
             if (!(string.IsNullOrWhiteSpace(Date) || string.IsNullOrWhiteSpace(Time) || string.IsNullOrWhiteSpace(Duration)))
@@ -118,7 +144,6 @@ namespace TutorManagementiOS.ViewModelsSession
                         list[i].time = time;
                         list[i].duration = duration;
                         list[i].report = report;
-                        list[i].grade = grade;
                         await db.UpdateSession(list[i]);
                         
                         nav();
@@ -135,6 +160,9 @@ namespace TutorManagementiOS.ViewModelsSession
         {
             await Application.Current.MainPage.Navigation.PushAsync(new HomeTutor());
         }
-        
+        async void navTeacher()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeTeacher());
+        }
     }
 }

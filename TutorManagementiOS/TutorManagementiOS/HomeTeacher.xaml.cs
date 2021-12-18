@@ -27,7 +27,7 @@ namespace TutorManagementiOS
         async void gradeSessions(object sender, EventArgs args)
         {
             //change for teacher
-            await Navigation.PushAsync(new ViewSessionPage()); ;         
+            await Navigation.PushAsync(new ViewSessionTeacherAccess()); ;         
         }
         async void viewTutorHours(object sender, EventArgs args)
         {

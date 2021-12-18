@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorManagementiOS.SessionDetailTeacherAccess"
+             Title="Session Detail Teacher">
+    <ContentPage.Content>
+        <CollectionView x:Name="collectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ScrollView>
+                        <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
+                            <BoxView HeightRequest="10"/>
+                            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                                <StackLayout Orientation="Vertical" Spacing="10">
+                                    <Grid Padding="5" RowDefinitions="Auto, *">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding sessionMembers}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding date}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Text="{Binding time}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="3" Grid.Column="0" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="4" Grid.Column="0" Text="{Binding report}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="0" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="0" Text="{Binding open}" TextColor="White" FontSize="Small"/>
+                                    </Grid>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Button x:Name="btnOpen" Text="Open/Close Session" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="btnOpen_Clicked"/>
+                            <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="btnUpdateRecord_Clicked"/>
+                            <Button x:Name="btnDeleteRecord" Text="Delete Record" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="btnDeleteRecord_Clicked"/>
+                            <Label/>
+                            <Button Text="Home" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="goHome"/>
+                        </StackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

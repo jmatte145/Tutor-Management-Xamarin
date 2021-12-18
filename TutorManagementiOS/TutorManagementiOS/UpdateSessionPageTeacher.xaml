@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorManagementiOS.UpdateSessionPageTeacher"
+             Title="Session Grade">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+                <BoxView HeightRequest="10"/>
+
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="Grade" Text="{Binding Grade}" Placeholder="Grade"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Command ="{Binding UpdateTeacherCommand}" Text="Give Grade" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055"/>
+
+                <Button Text="Cancel" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="goLogin"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
