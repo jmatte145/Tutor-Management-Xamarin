@@ -22,10 +22,23 @@ namespace TutorManagementiOS
         }
         async void displayUsers()
         {
-            List<Student> list = await db.GetAllStudents();
+            List<Tutor> list = await db.GetAllTutors();
+            List<UserClass> list2 = await db.GetAllUsers();
             if (list.Any())
             {
-                collectionView.ItemsSource = await db.GetAllStudents();
+                List<UserClass> list3 = new List<UserClass>();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    for (int y = 0; y < list2.Count; y++)
+                    {
+                        if (list2[y].userID == list[i].genUserID)
+                        {
+                            list3.Add(list2[y]);
+                        }
+                    }
+
+                }
+                collectionView.ItemsSource = list3.ToList<UserClass>();
             }
             else
             {
@@ -36,21 +49,22 @@ namespace TutorManagementiOS
         {
             var button = sender as Button;
             genUserID = (string)button.Text;
-            List<Student> list = await db.GetAllStudents();
+            List<Tutor> list = await db.GetAllTutors();
 
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].genUserID.Equals(genUserID))
                 {
-                    navstudent();
+                    typeUserId = list[i].tutorID;
+                    navtutor();
                 }
             }
 
 
         }
-        async void navstudent()
+        async void navtutor()
         {
-            await Navigation.PushAsync(new UserDetailPageStudent()); ;
+            await Navigation.PushAsync(new UserDetailPageTutorTeacher()); ;
 
         }
 

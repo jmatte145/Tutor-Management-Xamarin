@@ -19,14 +19,6 @@
                                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
                                             <Label Grid.Row="1" Grid.Column="0" Text="Last Name:" TextColor="White" FontSize="Small"/>
                                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="2" Grid.Column="0" Text="Email:" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding email}" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="3" Grid.Column="0" Text="Username:" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="4" Grid.Column="0" Text="Password:" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding password}" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="5" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
-                                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding approvalStatus}" TextColor="White" FontSize="Small"/>
                                             <Label Grid.Row="6" Grid.Column="0" Text="User Type:" TextColor="White" FontSize="Small"/>
                                             <Label Grid.Row="6" Grid.Column="1" Text="Tutor" TextColor="White" FontSize="Small"/>
                                         </Grid>
@@ -38,7 +30,7 @@
                 </CollectionView>
 
                 <CollectionView x:Name="collectionView2" HeightRequest="150">
-                    <!--Set manually because xamarin sucks-->
+                    
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
@@ -61,15 +53,7 @@
                 <BoxView HeightRequest="10"/>
                 <Frame>
                     <StackLayout>
-                        <Button x:Name="btnAuth" Text="Authorization Yes/No" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055" Clicked="btnAuth_Clicked"/>
-                        <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055" Clicked="btnUpdateRecord_Clicked"/>
-                        <Button x:Name="btnDeleteRecord" Text="Delete Record" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055" Clicked="btnDeleteRecord_Clicked"/>
+
                         <Label/>
                         <Button Text="Home" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  

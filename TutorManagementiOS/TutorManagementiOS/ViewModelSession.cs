@@ -126,7 +126,6 @@ namespace TutorManagementiOS.ViewModelsSession
             }
             else
                 Console.WriteLine("hello2");
-                DisplayInvalidLoginPrompt();
 
         }
         async void UpdateSubmit()
