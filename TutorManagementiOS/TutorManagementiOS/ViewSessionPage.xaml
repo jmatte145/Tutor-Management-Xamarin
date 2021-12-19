@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorManagementiOS.ViewSessionPage">
+             x:Class="TutorManagementiOS.ViewSessionPage"
+             Title="View Sessions">
     <ContentPage.Content>
         <CollectionView x:Name="collectionView">
             <CollectionView.ItemTemplate>
@@ -19,15 +20,15 @@
                                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding time}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="2" Grid.Column="0" Text="Duration:" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="2" Grid.Column="1" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="3" Grid.Column="0" Text="Grade:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="4" Grid.Column="0" Text="Report:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="7" Grid.Column="0" Text="Course:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="8" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
-                                        <Button Grid.Row="9" Grid.Column="0" Text="{Binding sessionID}" Grid.ColumnSpan="3" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
+                                        <Label Grid.Row="3" Grid.Column="0" Text="Course:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="4" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="0" Text="Grade:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="6" Grid.Column="0" Text="Report:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
+                                        <Button Grid.Row="8" Grid.Column="0" Text="{Binding sessionID}" Grid.ColumnSpan="3" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
                                     </Grid>
                                 </StackLayout>
                             </Frame>

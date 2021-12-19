@@ -12,7 +12,7 @@
                 <Frame BackgroundColor="#BF043055" HasShadow="False">
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Label Text="Report:" TextColor="White" FontSize="Small"/>
-                        <Entry x:Name="Report" Text="" Placeholder="My report"   
+                        <Editor x:Name="Report" Text="" Placeholder="My report"   
                            PlaceholderColor="White" HeightRequest="200"
                            TextColor="White"/>
                     </StackLayout>
