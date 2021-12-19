@@ -50,6 +50,10 @@
                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding totalGrade}" TextColor="White" FontSize="Small"/>
                             <Label Grid.Row="1" Grid.Column="0" Text="Total Hours:" TextColor="White" FontSize="Small"/>
                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding totalHours}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Availablity Start:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding availableStart}" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="3" Grid.Column="0" Text="Availablity End:" TextColor="White" FontSize="Small"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding availableEnd}" TextColor="White" FontSize="Small"/>
                         </Grid>
 
                 </StackLayout>  
