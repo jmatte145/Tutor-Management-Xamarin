@@ -4,6 +4,7 @@
              x:Class="TutorManagementiOS.ViewTutors"
              Title="View Tutors">
     <ContentPage.Content>
+        <StackLayout>
         <CollectionView x:Name="collectionView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -16,9 +17,17 @@
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="0" Text="Approval Status:" TextColor="White" FontSize="Small"/>
-
-                                        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding userID}" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
+                                        <!--<CollectionView x:Name="collectionView2">
+                                        <CollectionView.ItemTemplate>
+                                        
+                                        <DataTemplate>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Available From:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding availableStart}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Available Until:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding availableEnd}" TextColor="White" FontSize="Small"/>
+                                        </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                        </CollectionView>-->
                                     </Grid>
                                 </StackLayout>
                             </Frame>
@@ -27,5 +36,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

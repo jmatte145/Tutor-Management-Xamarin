@@ -10,5 +10,7 @@ namespace TutorManagementiOS.Models
         public string genUserID { get; set; }
         public string totalGrade { get; set; }
         public string totalHours { get; set; }
+        public string availableStart { get; set; }
+        public string availableEnd { get; set; }
     }
 }

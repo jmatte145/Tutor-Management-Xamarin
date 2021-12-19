@@ -136,7 +136,9 @@ namespace TutorManagementiOS
                     tutorID = item.Key,
                     genUserID = item.Object.genUserID,
                     totalGrade = item.Object.totalGrade,
-                    totalHours = item.Object.totalHours
+                    totalHours = item.Object.totalHours,
+                    availableStart = item.Object.availableStart,
+                    availableEnd = item.Object.availableEnd
                 }).ToList();
         }
         public async Task<Tutor> GetTutorByID(string sID)

@@ -128,8 +128,8 @@ namespace TutorManagementiOS.ViewModelsRegister
             await db.SaveStudent(new Student
             {
                 genUserID = id,
-                totalVisits = null,
-                totalHours = null
+                totalVisits = "not yet set",
+                totalHours = "not yet set"
             });
         }
 
@@ -138,8 +138,10 @@ namespace TutorManagementiOS.ViewModelsRegister
             await db.SaveTutor(new Tutor
             {
                 genUserID = id,
-                totalGrade = null,
-                totalHours = null
+                totalGrade = "not yet set",
+                totalHours = "not yet set",
+                availableStart = "not yet set",
+                availableEnd = "not yet set"
             });
         }
 
