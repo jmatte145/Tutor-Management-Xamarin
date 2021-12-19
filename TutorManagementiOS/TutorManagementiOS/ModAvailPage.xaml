@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TutorManagementiOS.ModAvailPage"
+             Title="Modify Availabilities">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+
+                    <TimePicker x:Name="StartTime" Time="{Binding StartTime}"   
+                            HeightRequest="40"   
+                           TextColor="White"/>
+                    <TimePicker x:Name="EndTime" Time="{Binding EndTime}"   
+                            HeightRequest="40"   
+                           TextColor="White"/>
+                    <!-- StartTime and EndTime is the standard time the tutor is available.-->
+
+                    <Button Command ="{Binding SubmitCommand}" Text="Submit" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

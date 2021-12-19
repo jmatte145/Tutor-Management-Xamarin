@@ -17,9 +17,14 @@
             <Button Text="View Sessions" TextColor="White"  
                 FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                 BackgroundColor="#BF043055" Clicked="viewSession"/>
-            
 
-            <Button Text="Logout" TextColor="White"  
+
+             <Button Text="Availabilities" TextColor="White"  
+                 FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                 BackgroundColor="#BF043055" Clicked="modAvail"/>
+            
+            
+                <Button Text="Logout" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="goLogin"/>
         </StackLayout>

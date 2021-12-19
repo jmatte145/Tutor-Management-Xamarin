@@ -23,5 +23,9 @@ namespace TutorManagementiOS
         {
             await Navigation.PushAsync(new ViewSessionPage()); ;
         }
+        async void modAvail(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new ModAvailPage()); ;
+        }
     }
 }
