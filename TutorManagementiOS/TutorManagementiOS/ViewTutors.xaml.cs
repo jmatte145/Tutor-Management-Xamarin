@@ -24,9 +24,11 @@ namespace TutorManagementiOS
         {
             List<Tutor> list = await db.GetAllTutors();
             List<UserClass> list2 = await db.GetAllUsers();
+            List<UserClass> list3 = new List<UserClass>();
+            List<Tutor> list4 = new List<Tutor>();
+            List<TutorAvailablity> list5 = new List<TutorAvailablity>();
             if (list.Any())
             {
-                List<UserClass> list3 = new List<UserClass>();
                 for (int i = 0; i < list.Count; i++)
                 {
                     for (int y = 0; y < list2.Count; y++)
@@ -34,11 +36,22 @@ namespace TutorManagementiOS
                         if (list2[y].userID == list[i].genUserID)
                         {
                             list3.Add(list2[y]);
+                            list4.Add(list[i]);
                         }
                     }
 
                 }
-                collectionView.ItemsSource = list3.ToList<UserClass>();
+                for (int i = 0; i < list3.Count; i++)
+                {
+                    TutorAvailablity temp = new TutorAvailablity();
+                    temp.firstName = list3[i].firstName;
+                    temp.lastName = list3[i].lastName;
+                    temp.userName = list3[i].userName;
+                    temp.availableStart = list4[i].availableStart;
+                    temp.availableEnd = list4[i].availableEnd;
+                    list5.Add(temp);
+                }
+                collectionView.ItemsSource = list5;
             }
             else
             {

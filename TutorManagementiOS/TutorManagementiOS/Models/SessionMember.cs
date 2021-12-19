@@ -6,6 +6,7 @@ namespace TutorManagementiOS
 {
     public class SessionMemberClass
     {
+        public string sessionMemberID { get; set; }
         public string sessionID { get; set; }
         public string userID { get; set; }
 

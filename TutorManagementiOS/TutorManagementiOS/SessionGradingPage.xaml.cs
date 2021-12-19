@@ -27,13 +27,20 @@ namespace TutorManagementiOS
         }
         public void btnOpen_Clicked(object sender, EventArgs e)
         {
+            updateSession();
+        }
+
+        async void updateSession()
+        {
             string temp = NewGrade.Text;
-            List<SessionClass> list = new List<SessionClass>();
+
+            List<SessionClass> list = await db.GetAllSessions();
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].sessionID.Equals(ViewSessionTeacherAccess.sessionIDforteacher))
                 {
                     list[i].grade = temp;
+                    await db.UpdateSession(list[i]);
                     nav();
                 }
             }
