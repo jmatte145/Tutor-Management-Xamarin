@@ -11,11 +11,11 @@ using TutorManagementiOS.ViewModelsSession;
 namespace TutorManagementiOS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateSessionPage : ContentPage
+    public partial class temp : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
 
-        public CreateSessionPage()
+        public temp()
         {
             var vm = new ViewModelSession();
             this.BindingContext = vm;

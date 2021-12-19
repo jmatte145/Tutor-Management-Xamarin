@@ -17,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <EmbeddedResource Update="CreateSessionPage.xaml">
-		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
     <EmbeddedResource Update="CourseDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
