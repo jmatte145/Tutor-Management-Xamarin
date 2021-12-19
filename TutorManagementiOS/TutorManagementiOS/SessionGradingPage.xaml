@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TutorManagementiOS.ViewSessionTeacherAccess"
-             Title="Session Teacher Page">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TutorManagementiOS.SessionGradingPage">
     <ContentPage.Content>
         <CollectionView x:Name="collectionView">
             <CollectionView.ItemTemplate>
@@ -13,7 +13,6 @@
                             <Frame BackgroundColor="#BF043055" HasShadow="False">
                                 <StackLayout Orientation="Vertical" Spacing="10">
                                     <Grid Padding="5" RowDefinitions="Auto, *">
-                                     
                                         <Label Grid.Row="0" Grid.Column="0" Text="Date:" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding date}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="1" Grid.Column="0" Text="Time:" TextColor="White" FontSize="Small"/>
@@ -28,10 +27,22 @@
                                         <Label Grid.Row="7" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="8" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="8" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
-                                        <Button Grid.Row="9" Grid.Column="0" Text="{Binding sessionID}" Grid.ColumnSpan="3" TextColor="#BF043055" FontSize="Micro" Clicked="goDetail" />
+                                        <Label Grid.Row="9" Grid.Column="0" Text="Give Grade:" TextColor="White" FontSize="Small"/>
+                                        <Entry Grid.Row="9" Grid.Column="1" x:Name="NewGrade" Text="" Placeholder="new grade"   
+                                                PlaceholderColor="White" HeightRequest="40"   
+                                                TextColor="White"/>
                                     </Grid>
+
                                 </StackLayout>
                             </Frame>
+
+                            <Button x:Name="btnGrade" Text="Grade Session" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="btnOpen_Clicked"/>
+
+                            <Button Text="Home" TextColor="White"  
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" Clicked="goHome"/>
                         </StackLayout>
                     </ScrollView>
                 </DataTemplate>
