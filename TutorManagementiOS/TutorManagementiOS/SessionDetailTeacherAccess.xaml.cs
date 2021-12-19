@@ -21,7 +21,7 @@ namespace TutorManagementiOS
         async void displayUser()
         {
             List<SessionClass> list = new List<SessionClass>();
-            list.Add(await db.GetSessionByID(ViewSessionTeacherAccess.sessionID));
+            list.Add(await db.GetSessionByID(ViewSessionTeacherAccess.sessionIDforteacher));
             collectionView.ItemsSource = list;
 
         }
@@ -31,7 +31,7 @@ namespace TutorManagementiOS
             list = await db.GetAllSessions();
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].sessionID.Equals(ViewSessionTeacherAccess.sessionID))
+                if (list[i].sessionID.Equals(ViewSessionTeacherAccess.sessionIDforteacher))
                 {
                     list[i].completed = !list[i].completed;
                     await db.UpdateSession(list[i]);
@@ -42,13 +42,13 @@ namespace TutorManagementiOS
         }
         async void btnUpdateRecord_Clicked(object sender, EventArgs e)
         {
-            SessionClass session1 = await db.GetSessionByID(ViewSessionTeacherAccess.sessionID);
+            SessionClass session1 = await db.GetSessionByID(ViewSessionTeacherAccess.sessionIDforteacher);
             await db.UpdateSession(session1);
             navUpdate();
         }
         async void btnDeleteRecord_Clicked(object sender, EventArgs e)
         {
-            SessionClass session1 = await db.GetSessionByID(ViewSessionTeacherAccess.sessionID);
+            SessionClass session1 = await db.GetSessionByID(ViewSessionTeacherAccess.sessionIDforteacher);
             await db.DeleteSession(session1);
             nav();
         }

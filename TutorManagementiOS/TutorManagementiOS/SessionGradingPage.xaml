@@ -4,49 +4,63 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="TutorManagementiOS.SessionGradingPage">
     <ContentPage.Content>
-        <CollectionView x:Name="collectionView">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <ScrollView>
-                        <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
-                            <BoxView HeightRequest="10"/>
-                            <Frame BackgroundColor="#BF043055" HasShadow="False">
-                                <StackLayout Orientation="Vertical" Spacing="10">
-                                    <Grid Padding="5" RowDefinitions="Auto, *">
-                                        <Label Grid.Row="0" Grid.Column="0" Text="Date:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding date}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="0" Text="Time:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding time}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="0" Text="Duration:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="3" Grid.Column="0" Text="Grade:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="4" Grid.Column="0" Text="Report:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="7" Grid.Column="0" Text="Course:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="8" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="9" Grid.Column="0" Text="Give Grade:" TextColor="White" FontSize="Small"/>
-                                        <Entry Grid.Row="9" Grid.Column="1" x:Name="NewGrade" Text="" Placeholder="new grade"   
-                                                PlaceholderColor="White" HeightRequest="40"   
-                                                TextColor="White"/>
-                                    </Grid>
 
-                                </StackLayout>
-                            </Frame>
+        <ScrollView>
 
-                            <Button x:Name="btnGrade" Text="Grade Session" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055" Clicked="btnOpen_Clicked"/>
+            <StackLayout Padding="10">
+                <CollectionView x:Name="collectionView" HeightRequest="300">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical" Padding="10" Spacing="0">
+                                <BoxView HeightRequest="10"/>
+                                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                                    <StackLayout Orientation="Vertical" Spacing="10">
+                                        <Grid Padding="5" RowDefinitions="Auto, *">
+                                            <Label Grid.Row="0" Grid.Column="0" Text="Date:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding date}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="1" Grid.Column="0" Text="Time:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding time}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="2" Grid.Column="0" Text="Duration:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="3" Grid.Column="0" Text="Grade:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="4" Grid.Column="0" Text="Report:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="7" Grid.Column="0" Text="Course:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="7" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="8" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
+                                            <Label Grid.Row="8" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
 
-                            <Button Text="Home" TextColor="White"  
-                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="#BF043055" Clicked="goHome"/>
+                                        </Grid>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <StackLayout Orientation="Vertical" Padding="10" Spacing="0">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False">
+                        <StackLayout Orientation="Vertical">
+                            <Label Grid.Row="9" Grid.Column="0" Text="Give Grade:" TextColor="White" FontSize="Small"/>
+                            <Entry Grid.Row="9" Grid.Column="1" x:Name="NewGrade" Text="" Placeholder="new grade"   
+                                                    PlaceholderColor="White" HeightRequest="40"   
+                                                    TextColor="White"/>
                         </StackLayout>
-                    </ScrollView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        
+                    </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="10" Spacing="10">
+                <Button x:Name="btnGrade" Text="Grade Session" TextColor="White"  
+                            FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                            BackgroundColor="#BF043055" Clicked="btnOpen_Clicked"/>
+
+                    <Button Text="Home" TextColor="White"  
+                            FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                            BackgroundColor="#BF043055" Clicked="goHome"/>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
