@@ -38,7 +38,7 @@ namespace TutorManagementiOS
 
         async void nav()
         {
-            await Navigation.PushAsync(new HomeTutor());
+            await Navigation.PushAsync(new HomeTeacher());
         }
     }
 }
