@@ -17,18 +17,20 @@
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding firstName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding lastName}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding userName}" TextColor="White" FontSize="Small"/>
-                                        <!--<CollectionView x:Name="collectionView2">
-                                        <CollectionView.ItemTemplate>
-                                        
-                                        <DataTemplate>
-                                        <Label Grid.Row="1" Grid.Column="0" Text="Available From:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding availableStart}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="0" Text="Available Until:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding availableEnd}" TextColor="White" FontSize="Small"/>
-                                        </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                        </CollectionView>-->
-                                    </Grid>
+                                            <CollectionView x:Name="collectionView2">
+                                                <CollectionView.ItemTemplate>
+
+                                                    <DataTemplate>
+                                                        <StackLayout>
+                                                        <Label Grid.Row="1" Grid.Column="0" Text="Available From:" TextColor="White" FontSize="Small"/>
+                                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding availableStart}" TextColor="White" FontSize="Small"/>
+                                                        <Label Grid.Row="2" Grid.Column="0" Text="Available Until:" TextColor="White" FontSize="Small"/>
+                                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding availableEnd}" TextColor="White" FontSize="Small"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+                                        </Grid>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
