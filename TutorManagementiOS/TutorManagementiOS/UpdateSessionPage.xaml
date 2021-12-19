@@ -10,9 +10,6 @@
 
                 <Frame BackgroundColor="#BF043055" HasShadow="False">
                     <StackLayout Orientation="Vertical" Spacing="10">
-                        <Entry x:Name="SessionMembers" Text="{Binding SessionMembers}" Placeholder="Members"   
-                           PlaceholderColor="White" HeightRequest="40"   
-                           TextColor="White"/>
                         <Entry x:Name="Date" Text="{Binding Date}" Placeholder="Date"   
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
@@ -21,9 +18,6 @@
                            TextColor="White"/>
                         <Entry x:Name="Duration" Text="{Binding Duration}" Placeholder="Duration"   
                            PlaceholderColor="White" HeightRequest="40"    
-                           TextColor="White"/>
-                        <Entry x:Name="Report" Text="{Binding Report}" Placeholder="Report"   
-                           PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
                     </StackLayout>
                 </Frame>

@@ -13,22 +13,26 @@
                                 <StackLayout Orientation="Vertical" Spacing="10">
                                     <Grid Padding="5" RowDefinitions="Auto, *">
                                         <Label Grid.Row="0" Grid.Column="0" Text="Date:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding date}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="0" Text="Students Attended:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding sessionMembers}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="0" Text="Duration and Time:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding time}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="2" Grid.Column="2" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding date}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Time:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding time}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Duration:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding duration}" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="3" Grid.Column="0" Text="Grade:" TextColor="White" FontSize="Small"/>
                                         <Label Grid.Row="3" Grid.Column="1" Text="{Binding grade}" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="4" Grid.Column="0" Text="Teacher Comment:" TextColor="White" FontSize="Small"/>
-                                        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="4" Grid.Column="0" Text="Report:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="{Binding report}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="7" Grid.Column="0" Text="Course:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding course}" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="8" Grid.Column="0" Text="Completed:" TextColor="White" FontSize="Small"/>
+                                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding completed}" TextColor="White" FontSize="Small"/>
+                                       
                                     </Grid>
 
                                 </StackLayout>
                             </Frame>
 
-                            <Button x:Name="btnOpen" Text="Open/Close Session" TextColor="White"  
+                            <Button x:Name="btnOpen" Text="Close Session" TextColor="White"  
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                         BackgroundColor="#BF043055" Clicked="btnOpen_Clicked"/>
                             <Button x:Name="btnUpdateRecord" Text="Update Record" TextColor="White"  

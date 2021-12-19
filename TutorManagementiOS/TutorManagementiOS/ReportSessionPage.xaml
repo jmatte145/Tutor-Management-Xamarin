@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TutorManagementiOS.ReportSessionPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+                <BoxView HeightRequest="10"/>
+
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Label Text="Report:" TextColor="White" FontSize="Small"/>
+                        <Entry x:Name="Report" Text="" Placeholder="My report"   
+                           PlaceholderColor="White" HeightRequest="400"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="Submit Report for Grading" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="report"/>
+
+                <Button Text="Cancel" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="goHome"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

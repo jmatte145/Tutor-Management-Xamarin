@@ -12,17 +12,17 @@ namespace TutorManagementiOS
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UpdateSessionPage : ContentPage
     {
+
+        FirebaseRepo db = new FirebaseRepo();
         public UpdateSessionPage()
         {
             var vm = new ViewModelSession();
             this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Session, try again", "OK");
+            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Session already closed", "OK");
 
             InitializeComponent();
-            SessionMembers.Completed += (object sender, EventArgs e) =>
-            {
-                Date.Focus();
-            };
+            _ = setOldValAsync();
+
             Date.Completed += (object sender, EventArgs e) =>
             {
                 Time.Focus();
@@ -35,18 +35,23 @@ namespace TutorManagementiOS
 
             Duration.Completed += (object sender, EventArgs e) =>
             {
-                Report.Focus();
-            };
-            Report.Completed += (object sender, EventArgs e) =>
-            {
                 vm.UpdateCommand.Execute(null);
             };
 
         }
 
+
+        async Task setOldValAsync()
+        {
+            var list = await db.GetSessionByID(ViewSessionPage.sessionID);
+            Duration.Text = list.duration;
+            Time.Text = list.time;
+            Date.Text = list.date;
+        }
+
         async void goLogin(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new LoginPage()); ;
+            await Navigation.PushAsync(new HomeTutor()); ;
         }
     }
 }

@@ -14,6 +14,8 @@ namespace TutorManagementiOS
     public partial class CreateSessionPage : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
+        static string testy = "chode";
+
         //string temp = Course.Items[Course.SelectedIndex];
         public CreateSessionPage()
         {
@@ -63,9 +65,13 @@ namespace TutorManagementiOS
             {
                 _ = DisplayAlert("Error", "DB empty...", "ok");
             }
-
-            string kek = Course.Items[Course.SelectedIndex];
         }
+
+        public void testo(object sender, EventArgs args)
+        {
+            testy = Course.Items[Course.SelectedIndex];
+        }
+
         public async static void test(string id)
         {
             FirebaseRepo db = new FirebaseRepo();
@@ -74,7 +80,8 @@ namespace TutorManagementiOS
             {
                 if (lister[i].sessionID.Equals(id))
                 {
-                    lister[i].course= Course.Items[Course.SelectedIndex];
+                    lister[i].course= testy;
+                    await db.UpdateSession(lister[i]);
                 }
             }
         }

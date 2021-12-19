@@ -25,25 +25,12 @@ namespace TutorManagementiOS
             collectionView.ItemsSource = list;
 
         }
-        async void btnOpen_Clicked(object sender, EventArgs e)
+        public void btnOpen_Clicked(object sender, EventArgs e)
         {
-            List<SessionClass> list = new List<SessionClass>();
-            list = await db.GetAllSessions();
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].sessionID.Equals(ViewSessionPage.sessionID))
-                {
-                    list[i].completed = !list[i].completed;
-                    await db.UpdateSession(list[i]);
-                    _ = DisplayAlert("Status Updated", "The status of the session is now: " + list[i].completed, "ok");
-                    nav();
-                }
-            }
+            navReport();
         }
-        async void btnUpdateRecord_Clicked(object sender, EventArgs e)
+        public void btnUpdateRecord_Clicked(object sender, EventArgs e)
         {
-            SessionClass session1 = await db.GetSessionByID(ViewSessionPage.sessionID);
-            await db.UpdateSession(session1);
             navUpdate();
         }
         async void btnDeleteRecord_Clicked(object sender, EventArgs e)
@@ -65,6 +52,10 @@ namespace TutorManagementiOS
         async void navUpdate()
         {
             await Navigation.PushAsync(new UpdateSessionPage());
+        }
+        async void navReport()
+        {
+            await Navigation.PushAsync(new ReportSessionPage());
         }
     }
 }

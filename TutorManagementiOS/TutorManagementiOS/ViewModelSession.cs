@@ -51,7 +51,7 @@ namespace TutorManagementiOS.ViewModelsSession
         public ViewModelSession()
         {
             SubmitCommand = new Command(OnSubmit);
-            //UpdateCommand = new Command(UpdateSubmit);
+            UpdateCommand = new Command(UpdateSubmit);
             //UpdateTeacherCommand = new Command(UpdateSubmitTeacher);
         }
         async void OnSubmit()
@@ -108,33 +108,35 @@ namespace TutorManagementiOS.ViewModelsSession
         //        Console.WriteLine("hello2");
 
         //}
-        //async void UpdateSubmit()
-        //{
-        //    if (!(string.IsNullOrWhiteSpace(Date) || string.IsNullOrWhiteSpace(Time) || string.IsNullOrWhiteSpace(Duration)))
-        //    {
-        //        List<SessionClass> list = new List<SessionClass>();
-        //        list = await db.GetAllSessions();
-        //        for (int i = 0; i < list.Count; i++)
-        //        {
-        //            if (list[i].sessionID.Equals(ViewSessionPage.sessionID))
-        //            {
-        //                list[i].sessionMembers = sessionMembers;
-        //                list[i].date = date;
-        //                list[i].time = time;
-        //                list[i].duration = duration;
-        //                list[i].report = report;
-        //                await db.UpdateSession(list[i]);
-                        
-        //                nav();
-        //            }
-        //        }
+        async void UpdateSubmit()
+        {
+            if (!(string.IsNullOrWhiteSpace(Date) || string.IsNullOrWhiteSpace(Time) || string.IsNullOrWhiteSpace(Duration)))
+            {
+                List<SessionClass> list = new List<SessionClass>();
+                list = await db.GetAllSessions();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].sessionID.Equals(ViewSessionPage.sessionID) & list[i].completed==false)
+                    {
+                        list[i].date = date;
+                        list[i].time = time;
+                        list[i].duration = duration;
+                        await db.UpdateSession(list[i]);
 
-        //        nav();
-        //    }
-        //    else
-        //        DisplayInvalidLoginPrompt();
+                        nav();
+                    }
+                    else
+                    {
+                        DisplayInvalidLoginPrompt();
+                    }
+                }
 
-        //}
+                nav();
+            }
+            else
+                DisplayInvalidLoginPrompt();
+
+        }
         async void nav()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new HomeTutor());

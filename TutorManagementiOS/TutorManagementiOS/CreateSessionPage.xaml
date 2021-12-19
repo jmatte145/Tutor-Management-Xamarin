@@ -25,7 +25,7 @@
 
                 <Button Command ="{Binding SubmitCommand}" Text="Create" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#BF043055"/>
+                    BackgroundColor="#BF043055" Clicked="testo"/>
 
                 <Button Text="Cancel" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
