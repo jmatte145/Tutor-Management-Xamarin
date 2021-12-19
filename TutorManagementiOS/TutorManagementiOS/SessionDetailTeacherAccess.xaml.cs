@@ -33,9 +33,9 @@ namespace TutorManagementiOS
             {
                 if (list[i].sessionID.Equals(ViewSessionTeacherAccess.sessionID))
                 {
-                    list[i].open = !list[i].open;
+                    list[i].completed = !list[i].completed;
                     await db.UpdateSession(list[i]);
-                    _ = DisplayAlert("Status Updated", "The status of the session is now: " + list[i].open, "ok");
+                    _ = DisplayAlert("Status Updated", "The status of the session is now: " + list[i].completed, "ok");
                     nav();
                 }
             }

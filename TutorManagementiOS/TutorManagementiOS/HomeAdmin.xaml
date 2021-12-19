@@ -14,13 +14,17 @@
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="goAuthorization"/>
 
+                <Button Text="Add a Course" TextColor="White" 
+                        FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" 
+                        BackgroundColor="#BF043055" Clicked="goCourseInfo"/>
+
                 <Button Text="Manage Courses" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="goCourse"/>
 
-                <Button Text="Add a Course" TextColor="White" 
+                <Button Text="Assing Course Member" TextColor="White" 
                         FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" 
-                        BackgroundColor="#BF043055" Clicked="goCourseInfo"/>
+                        BackgroundColor="#BF043055" Clicked="goCourseAssignment"/>
 
                 <Button Text="Logout" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  

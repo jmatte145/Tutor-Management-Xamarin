@@ -13,7 +13,7 @@ namespace TutorManagementiOS
     {
         // This is a test comment // 
         FirebaseClient firebaseClient =
-    new FirebaseClient("https://phone-displayer-default-rtdb.firebaseio.com/");
+    new FirebaseClient("https://tutorapp-daf4d-default-rtdb.firebaseio.com/");
 
         // User //
         public async Task<string> SaveUser(UserClass user)
@@ -235,13 +235,13 @@ namespace TutorManagementiOS
                 {
                     sessionID = item.Key,
                     tutorID = item.Object.tutorID,
-                    sessionMembers = item.Object.sessionMembers,
+                    course = item.Object.course,
                     date = item.Object.date,
                     time = item.Object.time,
                     duration= item.Object.duration,
                     report= item.Object.report,
                     grade = item.Object.grade,
-                    open = item.Object.open,
+                    completed = item.Object.completed,
 
                 }).ToList();
         }
@@ -293,6 +293,37 @@ namespace TutorManagementiOS
         public async Task<bool> UpdateCourse(CourseClass course)
         {
             await firebaseClient.Child(nameof(CourseClass) + "/" + course.courseID).PutAsync(JsonConvert.SerializeObject(course));
+            return true;
+        }
+        // Course Class //
+        public async Task<bool> SaveCourseMember(CourseMemberClass coursemem)
+        {
+            var data = await firebaseClient.Child(nameof(CourseMemberClass)).
+                PostAsync(JsonConvert.SerializeObject(coursemem));
+
+            if (!string.IsNullOrEmpty(data.Key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async Task<List<CourseMemberClass>> GetAllCoursesMembers()
+        {
+            return (await firebaseClient.
+                Child(nameof(CourseMemberClass)).OnceAsync<CourseMemberClass>()).Select(
+                item => new CourseMemberClass
+                {
+                    courseMemberID = item.Key,
+                    courseID = item.Object.courseID,
+                    userID = item.Object.userID
+                }).ToList();
+        }
+        public async Task<bool> UpdateCourseMember(CourseMemberClass course)
+        {
+            await firebaseClient.Child(nameof(CourseMemberClass) + "/" + course.courseMemberID).PutAsync(JsonConvert.SerializeObject(course));
             return true;
         }
     }

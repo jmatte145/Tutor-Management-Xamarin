@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TutorManagementiOS.CourseAssingmentPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+
+                <BoxView HeightRequest="10"/>
+
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Label Text="User:" TextColor="White" FontSize="Small"/>
+                        <Picker x:Name="User" TextColor="White" Title="Select a user" ItemsSource="{Binding UserClass}"  ItemDisplayBinding="{Binding userName}" SelectedItem="{Binding Course}"/>
+                        <Label Text="Course:" TextColor="White" FontSize="Small"/>
+                        <Picker x:Name="Course" TextColor="White" Title="Select a course" ItemsSource="{Binding CourseClass}" ItemDisplayBinding="{Binding courseName}" SelectedItem="{Binding User}"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="Assign" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="assignCourseMember"/>
+
+                <Button Text="Cancel" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="goHome"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

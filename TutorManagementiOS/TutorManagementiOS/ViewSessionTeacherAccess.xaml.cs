@@ -25,7 +25,7 @@ namespace TutorManagementiOS
             List<SessionClass> filtered = new List<SessionClass>();
             for (int i = 0; i < list.Count; i++)
             {
-                if(list[i].open == false)
+                if(list[i].completed == false)
                 {
                     filtered.Add(list[i]);
                 }

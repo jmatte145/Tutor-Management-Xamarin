@@ -21,6 +21,10 @@
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="viewTutorHours"/>
 
+                <Button Text="Assing Course Member" TextColor="White" 
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="#BF043055" Clicked="goCourseAssignment"/>
+
                 <Button Text="Logout" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#BF043055" Clicked="goLogin"/>

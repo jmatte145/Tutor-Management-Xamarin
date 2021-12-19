@@ -8,12 +8,12 @@ namespace TutorManagementiOS
     {
         public string sessionID { get; set; }
         public string tutorID { get; set; }
-        public string sessionMembers { get; set; }
+        public string course { get; set; }
         public string date { get; set; }
         public string time { get; set; }
         public string duration { get; set; }
         public string report { get; set; }
         public string grade { get; set; }
-        public bool open { get; set; }
+        public bool completed { get; set; }
     }
 }

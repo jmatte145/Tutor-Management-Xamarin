@@ -12,7 +12,7 @@ namespace TutorManagementiOS
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CourseManagementPage : ContentPage
     {
-        public static string courseID;
+        public static string courseId;
         FirebaseRepo fbr = new FirebaseRepo();
         public CourseManagementPage()
         {
@@ -33,18 +33,15 @@ namespace TutorManagementiOS
             }
         }
 
-        async void goCourseInfo(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new CourseDetailsPage()); ;
-        }
-
-        async void goHome(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new HomeAdmin()); ;
-        }
-
         private void btnModifyCourse_Clicked(object sender, EventArgs e)
         {
+            var button = sender as Button;
+            courseId = (string)button.Text;
+            nav();
+        }
+        async void nav()
+        {
+            await Navigation.PushAsync(new UpdateCoursePage()); ;
 
         }
     }

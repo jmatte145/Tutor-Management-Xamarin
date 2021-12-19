@@ -19,7 +19,7 @@ namespace TutorManagementiOS
         }
         async void navManagementPage()
         {
-            await Navigation.PushAsync(new CourseManagementPage()); ;
+            await Navigation.PushAsync(new HomeAdmin()); ;
         }
 
         private void btnGoBack_Clicked(object sender, EventArgs e)

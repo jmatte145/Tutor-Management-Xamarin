@@ -29,6 +29,12 @@ namespace TutorManagementiOS
             //change for teacher
             await Navigation.PushAsync(new ViewSessionTeacherAccess()); ;         
         }
+
+        async void goCourseAssignment(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CourseAssingmentTeacherPage());
+        }
+
         async void viewTutorHours(object sender, EventArgs args)
         {
             //change for teacher

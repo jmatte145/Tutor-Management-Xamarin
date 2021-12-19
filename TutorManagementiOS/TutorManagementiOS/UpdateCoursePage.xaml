@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TutorManagementiOS.UpdateCoursePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <BoxView HeightRequest="10"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="CourseName" Text="{Binding CourseName}" Placeholder="CourseName"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                        <Entry x:Name="CourseNumber" Text="{Binding CourseNumber}" Placeholder="CourseName"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+                <Button Command="{Binding SubmitCommand}" Text="Update" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" />
+                <Button Text="Home" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" Clicked="nav"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>  
+</ContentPage>
