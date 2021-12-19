@@ -14,7 +14,7 @@ namespace TutorManagementiOS
     public partial class CreateSessionPage : ContentPage
     {
         FirebaseRepo db = new FirebaseRepo();
-
+        //string temp = Course.Items[Course.SelectedIndex];
         public CreateSessionPage()
         {
             var vm = new ViewModelSession();
@@ -63,11 +63,20 @@ namespace TutorManagementiOS
             {
                 _ = DisplayAlert("Error", "DB empty...", "ok");
             }
+
+            string kek = Course.Items[Course.SelectedIndex];
         }
-        public string test()
+        public async static void test(string id)
         {
-            string temp = Course.Items[Course.SelectedIndex];
-            return temp;
+            FirebaseRepo db = new FirebaseRepo();
+            List<SessionClass> lister = await db.GetAllSessions();
+            for (int i = 0; i < lister.Count; i++)
+            {
+                if (lister[i].sessionID.Equals(id))
+                {
+                    lister[i].course= Course.Items[Course.SelectedIndex];
+                }
+            }
         }
 
         async void goLogin(object sender, EventArgs args)

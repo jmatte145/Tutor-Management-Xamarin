@@ -17,10 +17,9 @@
                            PlaceholderColor="White" HeightRequest="40"   
                            TextColor="White"/>
                         <Entry x:Name="Duration" Text="{Binding Duration}" Placeholder="Duration"   
-                           PlaceholderColor="White" HeightRequest="40"
+                           PlaceholderColor="White" HeightRequest="40"    
                            TextColor="White"/>
-                        <Label Text="Course:" TextColor="White" FontSize="Small"/>
-                        <Picker x:Name="Course" x:FieldModifier="public" TextColor="White" Title="Select a user" ItemsSource="{Binding CourseClass}"  ItemDisplayBinding="{Binding courseName}" SelectedItem="{Binding Course}"/>
+                        <Picker x:Name="Course" x:FieldModifier="public" TextColor="White" Title="Select a course" ItemsSource="{Binding CourseClass}" ItemDisplayBinding="{Binding courseName}" SelectedItem="{Binding Course}"/>
                     </StackLayout>
                 </Frame>
 

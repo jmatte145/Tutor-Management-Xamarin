@@ -44,7 +44,7 @@ namespace TutorManagementiOS.ViewModelsSession
             }
         }
         //private string course = CreateSessionPage.test();
-     
+
         public ICommand SubmitCommand { protected set; get; }
         public ICommand UpdateCommand { protected set; get; }
         public ICommand UpdateTeacherCommand { protected set; get; }
@@ -69,7 +69,16 @@ namespace TutorManagementiOS.ViewModelsSession
                     grade = "not graded",
                     completed = false
                 });
-
+                List<SessionClass> lister = await db.GetAllSessions();
+                string currentSession = "";
+                for (int i = 0; i < lister.Count; i++)
+                {
+                    if (lister[i].date.Equals(date) & lister[i].time.Equals(time) & lister[i].duration.Equals(duration))
+                    {
+                        currentSession = lister[i].sessionID;
+                    }
+                }
+                    CreateSessionPage.test(currentSession);
                 nav();
             }
             else
